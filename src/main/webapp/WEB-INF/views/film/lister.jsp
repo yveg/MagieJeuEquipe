@@ -6,7 +6,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <h1>Liste des films</h1>
-<input type="button" value="Ajouter" ng-click="chargeContenu('/film/ajouter')"/>
+<input type="button" value="Ajouter" onclick="chargeContenu('/film/ajouter')"/>
 <c:forEach items="${films}" var="film">
     ${film.titre}
     <br>

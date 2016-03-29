@@ -5,9 +5,13 @@
  */
 package streaming.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import streaming.entity.Genre;
+import streaming.service.GenreCrudService;
 
 /**
  *
@@ -17,9 +21,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/genre")
 public class GenreController {
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String lister(){
+    @Autowired
+    private GenreCrudService genreCrudService;
+    
+    @RequestMapping(value="ajouter", method = RequestMethod.GET)
+    public String ajouter(Model m){
         
-        return "genre/genre_lister";
+        m.addAttribute("genre", new Genre());
+        
+        return "genre/ajouter";
+    }
+    
+    @RequestMapping(value = "lister", method = RequestMethod.GET)
+    public String lister(Model m){
+        
+        m.addAttribute("genres", genreCrudService.findAll());
+        
+        return "genre/lister";
     }
 }
