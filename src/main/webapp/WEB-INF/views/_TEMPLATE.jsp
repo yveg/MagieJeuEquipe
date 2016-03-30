@@ -11,14 +11,60 @@
 
             var urlAppli = '<c:url value="/"/>';
 
+            function montreSablier() {
+                $('.sablier').show();
+            }
+
+            function cacheSablier() {
+                $('.sablier').hide();
+            }
+
+            function onLoad() {
+
+                cacheSablier();
+
+                $(document).ajaxSend(function () {
+                    montreSablier();
+                });
+
+                $(document).ajaxError(function () {
+                    cacheSablier();
+                });
+
+                $(document).ajaxSuccess(function () {
+                    cacheSablier();
+                });
+            }
+
+            function ajouterFilm() {
+                $('.content').load(urlAppli + '/film/ajouter', $('form').serialize());
+            }
+
+//            function ajouterFilm(){
+//                $.post( urlAppli + '/film/ajouter', $('form').serialize() ,function(data){
+//                    
+//                    chargeContenu('/film/lister');
+//                });
+//            }
+
+            function ajouterGenre() {
+                $.post(urlAppli + '/genre/ajouter', $('form').serialize(), function (data) {
+
+                    $('.content').html(data);
+                });
+            }
+
             function chargeContenu(route) {
 
-                $('.content').load(urlAppli + route);
+                $(".content").load(urlAppli + route);
             }
 
         </script>
     </head>
-    <body>
+    <body onload="onLoad();">
+        <div class="sablier">
+            <img src="<c:url value="/Images/sablier.gif"/>" alt=""/>
+        </div>
         <div class="menu"> 
             <c:import url="_MENU.jsp" />
         </div>

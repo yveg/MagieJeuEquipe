@@ -12,6 +12,6 @@
         <label for="nom">Titre</label>
         <form:input path="nom"/>
         <br>
-        <input type="submit"/>
+        <input type="button" value="Ajouter" onclick="ajouterGenre()"/>
     </form:form>
 </div>

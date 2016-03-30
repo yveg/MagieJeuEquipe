@@ -17,6 +17,6 @@
         <br>
         <label for="anneeProd">Année de prod.</label>
         <form:input path="anneeProd"/>
-        <input type="submit"/>
+        <input type="button" value="Ajouter" onclick="ajouterFilm();"/>
     </form:form>
 </div>

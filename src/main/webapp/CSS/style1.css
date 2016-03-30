@@ -1,3 +1,9 @@
+.sablier{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+}
+
 .content, .menu, .footer {
     text-align: center;
     width: 80%;
