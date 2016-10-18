@@ -12,6 +12,6 @@
         <title>JSP HomePage</title>
     </head>
     <body>
-        <h1>page home!</h1>
+        <h1>page home! mis a jour a 11h18 </h1>
     </body>
 </html>
