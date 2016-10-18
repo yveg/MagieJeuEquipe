@@ -26,7 +26,7 @@ public class JoueurController {
     public String home(){
         serv.findAll();
        
-        return "homepage.jsp";
+        return "home.jsp";
     }
     
 }

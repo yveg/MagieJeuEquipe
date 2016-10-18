@@ -23,6 +23,47 @@ public class Joueur implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private Integer tour;
+
+    private boolean revelation;
+    
+    private String avatar;
+
+    public Integer getTour() {
+        return tour;
+    }
+
+    public void setTour(Integer tour) {
+        this.tour = tour;
+    }
+
+    public boolean isRevelation() {
+        return revelation;
+    }
+
+    public void setRevelation(boolean revelation) {
+        this.revelation = revelation;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getPseudo() {
+        return pseudo;
+    }
+
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
+    }
+    
+    private String pseudo;
+    
+
     public Long getId() {
         return id;
     }
@@ -55,5 +96,5 @@ public class Joueur implements Serializable {
     public String toString() {
         return "magie.entity[ id=" + id + " ]";
     }
-    
+
 }

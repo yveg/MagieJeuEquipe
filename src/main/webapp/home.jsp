@@ -13,5 +13,10 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <input type="text" value="">
+        
+        <br>
+        <input   type="button"  value="RejoindrPartie">
+        
     </body>
 </html>
