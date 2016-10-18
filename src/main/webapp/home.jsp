@@ -1,6 +1,6 @@
 <%-- 
-    Document   : homepage
-    Created on : 18 oct. 2016, 10:13:59
+    Document   : homme
+    Created on : 18 oct. 2016, 16:14:18
     Author     : admin
 --%>
 
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP HomePage</title>
+        <title>JSP Page</title>
     </head>
     <body>
-        <h1>page home! mis a jour a 11h18 </h1>
+        <h1>Hello World!</h1>
     </body>
 </html>
