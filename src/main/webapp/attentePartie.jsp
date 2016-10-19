@@ -5,13 +5,18 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<script type="text/javascript">
+    setInterval("alert('instructions');", 5000)
+</script>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Attente de parties</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>
+            <u>Parties disponibles :</u>
+        </h1>
     </body>
 </html>
