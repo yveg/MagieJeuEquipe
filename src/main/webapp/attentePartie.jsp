@@ -6,16 +6,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <script src="JS/jquery-3.1.1.js" type="text/javascript"></script>
-<script type="text/javascript">         
-//    fucntion rechercherPartie(){
-//    alert("test");    
+<script type="text/javascript">   
+    
     setInterval(function(){ 
-            $('#parties').value ="<c:forEach items='${parties}' var='mesparties'>${mesparties.nom}<br></c:forEach></a>";
+            $('#parties').text("<c:forEach items='${parties}' var='mesparties'>");
+            $('#parties').append("<a href='attentejoueur'>${mesparties.nom} </a>");
+            $('#parties').append("<br></c:forEach></a>");
         }, 5000);
-     //<a href="lister_partie/${mesgenres.id}">Supprimer</a>
-        //$('#parties).append("test"); 
-//    }
-//    $(document).ready(rechercherPartie);
+
+//<a href="editer_film/${mesfilms.id}">Editer</a>
+
 </script>
 <!DOCTYPE html>
 <html>
@@ -29,8 +29,7 @@
         </h1>
         <div id="parties">
             <c:forEach items="${parties}" var="mesparties">
-                ${mesparties.nom}
-                <a>blabla<a>
+                <a href='attentejoueur'>${mesparties.nom}</a>
                 <br>
             </c:forEach>
         </div>
