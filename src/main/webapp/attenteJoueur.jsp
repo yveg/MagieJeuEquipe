@@ -2,7 +2,7 @@
     Document   : attenteJoueur
     Created on : 18 oct. 2016, 16:21:33
     Author     : yves ngambali
---%><!--nom de la partie: ${nomjj.Partie.id}--> 
+--%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
