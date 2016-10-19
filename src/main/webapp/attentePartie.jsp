@@ -11,7 +11,7 @@
     setInterval(function(){ 
             $('#parties').text("<c:forEach items='${parties}' var='mesparties'>");
             $('#parties').append("<a href='attentejoueur'>${mesparties.nom} </a>");
-            $('#parties').append("<br></c:forEach></a>");
+            $('#parties').append("<br></c:forEach>");
         }, 5000);
 
 //<a href="editer_film/${mesfilms.id}">Editer</a>

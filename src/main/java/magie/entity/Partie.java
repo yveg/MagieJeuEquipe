@@ -27,8 +27,8 @@ public class Partie implements Serializable {
     private Long id;
     private String nom;
     
-//    @OneToMany(mappedBy = "partie")
-//    private Collection<Joueur> joueurs = new ArrayList<>();
+    @OneToMany(mappedBy = "partie")
+    private Collection<Joueur> joueurs = new ArrayList<>();
 
     public String getNom() {
         return nom;
