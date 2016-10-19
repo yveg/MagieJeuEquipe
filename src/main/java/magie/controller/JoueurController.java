@@ -19,18 +19,25 @@ public class JoueurController {
 
     @Autowired
     private JoueurServiceCrud serv; // composition uml
-
+/*
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    /*public String home() {
+   public String home() {
         serv.findAll();
-*/
-    public String cookitPOST(Joueur j, HttpSession couqui) {
+
+    public String cookitjPOST(Joueur j, HttpSession couqui) {
         //Joueur j = (Joueur)request.getSession().setAttribute("j",valeur);
         serv.save(j);
-       couqui.setAttribute("nomjj", j.getNomj());
+       couqui.setAttribute("nomjj", j.getNomj()); // voir si 
         return "home.jsp";
     }
 
+ @RequestMapping(value = "/", method = RequestMethod.POST)
+    public String cookitpPOST(Joueur j, HttpSession couqui) {
+        serv.save(j);
+       couqui.setAttribute("nomjj", j.getId()); 
+        return "attentePartie.jsp";
+    }
+    
     @RequestMapping(value = {"/attentejoueur"}, method = RequestMethod.GET)
     public String listerattentejoueurGET(Model m) {
         m.addAttribute("nomjoueur", serv.findAllByOrderByIdAsc());
@@ -38,9 +45,9 @@ public class JoueurController {
     }
 
     @RequestMapping(value = {"/attentejoueur"}, method = RequestMethod.GET)
-    public String cookitGET(HttpSession couqui) {
+    public String cookijtGET(HttpSession couqui) {
         couqui.getAttribute("nomjj");
         return "home.jsp";
     }
-
+   */
 }

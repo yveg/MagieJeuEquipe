@@ -6,6 +6,7 @@
 package magie.controller;
 
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import magie.entity.Partie;
 import magie.service.PartieServiceCrud;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,4 +28,11 @@ public class PartieController {
         model.addAttribute("parties",parties);
         return "attentePartie.jsp";
     }
+    /* @RequestMapping(value = "/lister_parties", method = RequestMethod.POST)
+    public String cookitpPOST(Partie p, HttpSession couqui) {
+        crud.save(p);
+       couqui.setAttribute("nompp", p.getId()); 
+        return "attentePartie.jsp";
+
+    }*/
 }
