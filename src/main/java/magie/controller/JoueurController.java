@@ -30,14 +30,14 @@ public class JoueurController {
        couqui.setAttribute("nomjj", j.getNomj()); 
         return "home.jsp";
     }
- 
+  */
     @RequestMapping(value = "/creerjoueur", method = RequestMethod.POST)
     public String cookitpPOST(Joueur j, HttpSession couqui) {
         serv.save(j);
         couqui.setAttribute("nomjj", j.getId());
         return "redirect:/lister_parties";
     }
-        */
+       
       @RequestMapping(value = "/creerjoueur", method = RequestMethod.GET)
     public String cookitpGET(Joueur j, HttpSession couqui) {
         serv.save(j);
