@@ -37,6 +37,13 @@ public class JoueurController {
         couqui.setAttribute("nomjj", j.getId());
         return "redirect:/lister_parties";
     }
+    
+      @RequestMapping(value = {"/creerjoueur"}, method = RequestMethod.GET)
+    public String cookitpGET(Joueur j, HttpSession couqui) {
+        serv.save(j);
+        couqui.setAttribute("nomjj", j.getId());
+        return "redirect:/lister_parties";
+    }
 
     @RequestMapping(value = {"/attentejoueur"}, method = RequestMethod.GET)
     public String listerattentejoueurGET(Model m,HttpSession couqui) {
