@@ -5,10 +5,13 @@
  */
 package magie.service;
 
+import magie.entity.Partie;
+import org.springframework.data.repository.CrudRepository;
+
 /**
  *
  * @author admin
  */
-public interface PartieServiceCrud {
+public interface PartieServiceCrud extends CrudRepository<Partie, Long>{
     
 }
