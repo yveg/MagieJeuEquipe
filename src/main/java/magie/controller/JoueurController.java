@@ -30,8 +30,8 @@ public class JoueurController {
        couqui.setAttribute("nomjj", j.getNomj()); 
         return "home.jsp";
     }
-  */
-    /*@RequestMapping(value = "/creerjoueur", method = RequestMethod.POST)
+  *//*
+    @RequestMapping(value = "/creerjoueur", method = RequestMethod.POST)
     public String cookitpPOST(Joueur j, HttpSession couqui) {
        
     }
@@ -42,7 +42,6 @@ public class JoueurController {
         couqui.setAttribute("nomjj", j.getId());
         return "redirect:/lister_parties";
     }
-
       @RequestMapping(value = "/creerjoueur", method = RequestMethod.GET)
     public String cookitpGET(Joueur j, HttpSession couqui) {
         serv.save(j);
@@ -50,12 +49,14 @@ public class JoueurController {
        return "redirect:/lister_parties";
     }
 
+
     @RequestMapping(value = "/attentejoueur", method = RequestMethod.GET)
     public String listerattentejoueurGET(Model m,HttpSession couqui) {
        // m.addAttribute("nomjoueur", serv.findAllByOrderByIdAsc());
          m.addAttribute("nomjoueur", serv.findAll());
         couqui.getAttribute("nomjj");
         return "attenteJoueur.jsp";
+        
         
     }
     
