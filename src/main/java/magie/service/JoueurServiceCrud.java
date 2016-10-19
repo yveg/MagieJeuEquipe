@@ -6,13 +6,14 @@
 package magie.service;
 
 import java.io.Serializable;
+import java.util.List;
 import magie.entity.Joueur;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
- * @author admin
+ * @author yves ngambali
  */
 public interface JoueurServiceCrud extends CrudRepository<Joueur, Long>{
-    
+     public List<Joueur> findAllByOrderByIdAsc();
 }

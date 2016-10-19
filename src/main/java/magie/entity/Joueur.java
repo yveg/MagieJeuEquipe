@@ -22,12 +22,22 @@ public class Joueur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String nomj;
 
     private Integer tour;
 
     private boolean revelation;
     
     private String avatar;
+
+    public String getNomj() {
+        return nomj;
+    }
+
+    public void setNomj(String nomj) {
+        this.nomj = nomj;
+    }
+    
 
     public Integer getTour() {
         return tour;
