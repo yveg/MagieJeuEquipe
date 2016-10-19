@@ -10,13 +10,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <script src="JS/jquery-3.1.1.js" type="text/javascript"></script>
+        
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <input type="text" value="">
+        <h1>Hello World!</h1> 
+        
+        
+        <input type="text" value="ecrireVotreNom">
+       
         
         <br>
-        <input   type="button"  value="RejoindrPartie">
+        <input   type="button" onclick="/listerpartie"  value="RejoindrPartie">
         
     </body>
 </html>
