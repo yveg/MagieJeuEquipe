@@ -1,22 +1,19 @@
 <%-- 
-    Document   : attentePartie
-    Created on : 18 oct. 2016, 16:29:32
+    Document   : attenteJoueur
+    Created on : 18 oct. 2016, 16:21:33
     Author     : admin
 --%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<script type="text/javascript">
-    setInterval("alert('instructions');", 5000);
-</script>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Attente de parties</title>
+        <title>JSP Page d attente de joueur</title>
     </head>
     <body>
-        <h1>
-            <u>Parties disponibles :</u>
-        </h1>
+        <h1>Hello World!</h1>
     </body>
 </html>
