@@ -21,11 +21,6 @@ public class JoueurController {
 
     @RequestMapping(value = "/creerjoueur", method = RequestMethod.POST)
     public String cookitpPOST(Joueur j, HttpSession couqui) {
-
-    }
-
-    @RequestMapping(value = "/creerjoueur", method = RequestMethod.POST)
-    public String cookitpPOST(Joueur j, HttpSession couqui) {
         serv.save(j);
         couqui.setAttribute("nomjj", j.getId());
         return "redirect:/lister_parties";
