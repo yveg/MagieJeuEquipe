@@ -21,7 +21,7 @@
        
         
         <br>
-        <input   type="button" onclick="location.href='creerjoueur'"  value="RejoindrPartie">
+        <input   type="button" onclick="location.href='creerjoueur/${joueur}'"  value="RejoindrPartie">
         
     </body>
 </html>
