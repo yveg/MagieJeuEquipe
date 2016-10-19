@@ -5,6 +5,7 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,12 +17,10 @@
     <body>
         <h1>Hello World!</h1> 
         
-        
-        <input type="text" value="ecrireVotreNom">
-       
-        
+        <form:form modelAttribute="joueur">
+            <form:input path="pseudo"/> 
+            <input type="submit" />
+        </form:form>
         <br>
-        <input   type="button" onclick="location.href='creerjoueur/${joueur}'"  value="RejoindrPartie">
-        
     </body>
 </html>
