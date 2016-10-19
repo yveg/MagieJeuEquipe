@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -22,22 +24,25 @@ public class Joueur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String nomj;
 
     private Integer tour;
 
     private boolean revelation;
-    
+
     private String avatar;
 
-    public String getNomj() {
-        return nomj;
+    @ManyToOne
+    @JoinColumn(name = "partie_id")
+    private Partie partie;
+
+    public Partie getPartie() {
+        return partie;
     }
 
-    public void setNomj(String nomj) {
-        this.nomj = nomj;
+    public void setPartie(Partie partie) {
+        this.partie = partie;
     }
-    
+
 
     public Integer getTour() {
         return tour;
@@ -70,9 +75,8 @@ public class Joueur implements Serializable {
     public void setPseudo(String pseudo) {
         this.pseudo = pseudo;
     }
-    
+
     private String pseudo;
-    
 
     public Long getId() {
         return id;

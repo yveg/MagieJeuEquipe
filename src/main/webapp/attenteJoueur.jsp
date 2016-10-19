@@ -13,17 +13,20 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page d attente de joueur</title>
         <link href="CSS/forme.css" rel="stylesheet" type="text/css"/>
+        <script src="JS/jquery-3.1.1.js" type="text/javascript"></script>
         <script type="text/javascript">
-            setInterval("location.reload(forceGet);", 5000);
+            //setInterval("alert("echo"),location.reload(forceGet), 5000);
+            //setInterval(function(){ alert("Hello"); }, 5000);
+            setInterval(function(){ location.reload(true); }, 5000);
         </script>
     </head>
     <body>
         <h1>Page d'attente joueur avec partie cr&eacute;ee</h1>
         
-        <div>joueur de ce browser:${nomjj}, noms des joueurs:  <br>
+        <div><!--nom de la partie: ${nomjj.Partie.id}--> joueur de ce browser: ${nomjj}, noms des joueurs:  <br>
             <!-- scan la table joueurs et append le nom+br>-->
             <c:forEach var="displayjoueur" items="${nomjoueur}">
-                ${displayjoueur.nomj} <br>
+                ${displayjoueur.pseudo} <br>
             </c:forEach>
         </div>
         <div class="lancerjeu">

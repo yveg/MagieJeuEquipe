@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
- * @author admin
+ *  @author yves ngambali
  */
 @Controller
 public class JoueurController {
@@ -27,27 +27,23 @@ public class JoueurController {
     public String cookitjPOST(Joueur j, HttpSession couqui) {
         //Joueur j = (Joueur)request.getSession().setAttribute("j",valeur);
         serv.save(j);
-       couqui.setAttribute("nomjj", j.getNomj()); // voir si 
+       couqui.setAttribute("nomjj", j.getNomj()); 
         return "home.jsp";
     }
-
- @RequestMapping(value = "/", method = RequestMethod.POST)
+     */
+    @RequestMapping(value = "/creerjoueur", method = RequestMethod.POST)
     public String cookitpPOST(Joueur j, HttpSession couqui) {
         serv.save(j);
-       couqui.setAttribute("nomjj", j.getId()); 
-        return "attentePartie.jsp";
-    }
-    
-    @RequestMapping(value = {"/attentejoueur"}, method = RequestMethod.GET)
-    public String listerattentejoueurGET(Model m) {
-        m.addAttribute("nomjoueur", serv.findAllByOrderByIdAsc());
-        return "attenteJoueur.jsp";
+        couqui.setAttribute("nomjj", j.getId());
+        return "redirect:/lister_parties";
     }
 
     @RequestMapping(value = {"/attentejoueur"}, method = RequestMethod.GET)
-    public String cookijtGET(HttpSession couqui) {
+    public String listerattentejoueurGET(Model m,HttpSession couqui) {
+       // m.addAttribute("nomjoueur", serv.findAllByOrderByIdAsc());
+         m.addAttribute("nomjoueur", serv.findAll());
         couqui.getAttribute("nomjj");
-        return "home.jsp";
+        return "attenteJoueur.jsp";
     }
-   */
+    
 }

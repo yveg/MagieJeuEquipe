@@ -3,13 +3,13 @@
     Created on : 18 oct. 2016, 16:14:18
     Author     : admin
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>${titre}</title>
         <script src="JS/jquery-3.1.1.js" type="text/javascript"></script>
         
     </head>

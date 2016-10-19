@@ -11,10 +11,13 @@ and open the template in the editor.
 body {
     font-family: cursive;
     font-size: 1em;
+    background-color: indigo;
+    color: burlywood;
 }
 h1 {
     text-align: center;
 }
-.lancerjeu {
+.lancerjeu input{
     text-align: left;
+    float:right;
 }
