@@ -37,3 +37,4 @@ public class HomeController {
         return "redirect:/lister_parties"; 
     }
 }
+
