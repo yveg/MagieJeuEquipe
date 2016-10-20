@@ -41,6 +41,8 @@ public class Joueur implements Serializable {
     @OneToMany(mappedBy = "joueur")
     private Collection<Ingredient> ingredients = new ArrayList<>();
 
+   
+    
     public Collection<Ingredient> getIngredients() {
         return ingredients;
     }

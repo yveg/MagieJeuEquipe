@@ -40,18 +40,18 @@ public class PartieController {
     @RequestMapping(value="/lancerpartie", method = RequestMethod.GET)
     public String commencerGET(Model model, HttpSession cookie){
         List<Joueur> joueurs = (List) crudJoueur.findAll();
-        List<Ingredient> ingredients = new ArrayList<>();
-        for(int indiceJoueur = 0; indiceJoueur < crudJoueur.count(); indiceJoueur++){
-            for(int indiceIngredient = 0; indiceIngredient < 7; indiceIngredient++){
-                ingredients.add(new Ingredient());
-                //crudIngredient.save(ingredients.get(indiceIngredient));
-            }
-            joueurs.get(indiceJoueur).setIngredients(ingredients);
-            
-            //crudIngredients.save(ingredients.get(indiceIngredient));
-            crudJoueur.save(joueurs.get(indiceJoueur));
-            
         
+        for(int indiceJoueur = 0; indiceJoueur < crudJoueur.count(); indiceJoueur++){
+            List<Ingredient> ingredients = new ArrayList<>();
+            for(int indiceIngredient = 0; indiceIngredient < 7; indiceIngredient++){
+                Ingredient ingredient = new Ingredient();
+                
+                ingredients.add(ingredient);
+                ingredient.setJoueur(joueurs.get(indiceJoueur));            
+                crudIngredient.save(ingredient);
+            }
+            
+           
         }   
         model.addAttribute("joueurs", crudJoueur.findAll());
         model.addAttribute("joueuractuel", crudJoueur.findOne((Long)cookie.getAttribute("nomjj")).getPseudo());
