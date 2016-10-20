@@ -49,6 +49,6 @@ public class PartieController {
             joueurs.get(indiceJoueur).setIngredients(ingredients);
             crudJoueurs.save(joueurs.get(indiceJoueur));
         }   
-    return "Plateau.jsp";
+    return "plateau.jsp";
     }
 }
