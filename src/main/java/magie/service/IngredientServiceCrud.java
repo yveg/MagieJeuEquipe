@@ -9,7 +9,7 @@ package magie.service;
  *
  * @author admin
  */
-public interface IngredientsServiceCrud {
+public interface IngredientServiceCrud {
     
     
 }
