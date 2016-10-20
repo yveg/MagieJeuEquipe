@@ -23,14 +23,15 @@
     <body>
         <h1>Page d'attente joueur avec partie cr&eacute;ee</h1>
         
-        <div>joueur de ce browser: ${nomjj}, noms des joueurs:  <br>
+        <p>Joueur de ce browser: ${joueuractuel}, noms des joueurs pr&ecirc;ts:</p>
+        <div class="carre">
             <!-- scan la table joueurs et append le nom+br>-->
             <c:forEach var="displayjoueur" items="${nomjoueur}">
                 ${displayjoueur.pseudo} <br>
             </c:forEach>
         </div>
         <div class="lancerjeu">
-            <input type="button" value="lancer le jeu" onclick="location.href='/lancerjeu'">
+            <input type="button" value="lancer le jeu" onclick="location.href='/lancerpartie'">
         </div>
     </body>
 </html>
