@@ -21,9 +21,9 @@
         </script>
     </head>
     <body>
-        <h1>Page d'attente joueur avec partie cr&eacute;ee</h1>
+        <div class="div1">Page d'attente joueurs avec partie cr&eacute;ee</div>
         
-        <p>Joueur de ce browser: ${joueuractuel}, noms des joueurs pr&ecirc;ts:</p>
+        <p class="shadow">Vous &ecirc;tes: ${joueuractuel}</p> <span class="shadow">Noms des joueurs pr&ecirc;ts:</span><br><br><br>
         <div class="carre">
             <!-- scan la table joueurs et append le nom+br>-->
             <c:forEach var="displayjoueur" items="${nomjoueur}">
@@ -31,7 +31,7 @@
             </c:forEach>
         </div>
         <div class="lancerjeu">
-            <input type="button" value="lancer le jeu" onclick="location.href='/lancerpartie'">
+            <input type="button" value="lancer le jeu" onclick="location.href='lancerpartie'">
         </div>
     </body>
 </html>
