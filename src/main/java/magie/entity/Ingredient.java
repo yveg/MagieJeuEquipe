@@ -6,84 +6,48 @@
 package magie.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  *
  * @author admin
  */
 @Entity
-public class Joueur implements Serializable {
+public class Ingredient implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    private Integer tour;
-
-    private boolean revelation;
-
-    private String avatar;
-
+    private String nom;
+    
     @ManyToOne
-    @JoinColumn(name = "partie_id")
-    private Partie partie;
-    
-    @OneToMany(mappedBy = "partie")
-    private Collection<Ingredient> ingredients = new ArrayList<>();
+    @JoinColumn(name = "joueur_id")
+    private Partie joueur;
 
-    public Partie getPartie() {
-        return partie;
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public Partie getJoueur() {
+        return joueur;
+    }
+
+    public void setJoueur(Partie joueur) {
+        this.joueur = joueur;
     }
     
-    public void setPartie(Partie partie) {
-        this.partie = partie;
-    }
-
-
-    public Integer getTour() {
-        return tour;
-    }
-
-    public void setTour(Integer tour) {
-        this.tour = tour;
-    }
-
-    public boolean isRevelation() {
-        return revelation;
-    }
-
-    public void setRevelation(boolean revelation) {
-        this.revelation = revelation;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getPseudo() {
-        return pseudo;
-    }
-
-    public void setPseudo(String pseudo) {
-        this.pseudo = pseudo;
-    }
-
-    private String pseudo;
-
+    
+    
     public Long getId() {
         return id;
     }
@@ -102,10 +66,10 @@ public class Joueur implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Joueur)) {
+        if (!(object instanceof Ingredient)) {
             return false;
         }
-        Joueur other = (Joueur) object;
+        Ingredient other = (Ingredient) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -114,7 +78,7 @@ public class Joueur implements Serializable {
 
     @Override
     public String toString() {
-        return "magie.entity[ id=" + id + " ]";
+        return "magie.entity.Ingredient[ id=" + id + " ]";
     }
-
+    
 }
