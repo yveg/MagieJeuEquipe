@@ -33,7 +33,7 @@ public class Ingredient implements Serializable {
     
     @ManyToOne
     @JoinColumn(name = "joueur_id")
-    private Partie joueur;
+    private Joueur joueur;
 
     public Ingredient() {
         int nombreAleatoire = (int)Math.floor(Math.random()*5);
@@ -64,13 +64,15 @@ public class Ingredient implements Serializable {
         this.nom = nom;
     }
 
-    public Partie getJoueur() {
+    public Joueur getJoueur() {
         return joueur;
     }
 
-    public void setJoueur(Partie joueur) {
+    public void setJoueur(Joueur joueur) {
         this.joueur = joueur;
     }
+
+
     
     
     
