@@ -23,26 +23,27 @@ public class JoueurController {
   
   
     @RequestMapping(value = "/creerjoueur", method = RequestMethod.POST)
-    public String cookitpPOST(String nomdujoueur, HttpSession couqui) {
+    //public String cookitpPOST(String nomdujoueur, HttpSession couqui) {
+             public String cookitpPOST() {
         Joueur j= new Joueur();
-        j.setPseudo(nomdujoueur);
-        serv.save(j);
-        couqui.setAttribute("nomjj", j.getId());
+       // j.setPseudo(nomdujoueur);
+       // serv.save(j);
+       // couqui.setAttribute("nomjj", j.getPseudo());
         return "redirect:/lister_parties";
     }
 
-    @RequestMapping(value = "/creerjoueur", method = RequestMethod.GET)
+   /* @RequestMapping(value = "/creerjoueur", method = RequestMethod.GET)
     public String cookitpGET(Joueur j, HttpSession couqui) {
         serv.save(j);
-        couqui.setAttribute("nomjj", j.getId());
+        
         return "redirect:/lister_parties";
     }
-
+*/
     @RequestMapping(value = "/attentejoueur", method = RequestMethod.GET)
     public String listerattentejoueurGET(Model m, HttpSession couqui) {
         // m.addAttribute("nomjoueur", serv.findAllByOrderByIdAsc());
         m.addAttribute("nomjoueur", serv.findAll());
-        couqui.getAttribute("nomjj");
+         m.addAttribute("joueuractuel", serv.findOne((Long)couqui.getAttribute("nomjj")).getPseudo());
         return "attenteJoueur.jsp";
 
     }
