@@ -6,6 +6,7 @@ import magie.service.JoueurServiceCrud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -17,10 +18,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class JoueurController {
 
     @Autowired
-    private JoueurServiceCrud serv; // composition uml
+    private JoueurServiceCrud serv; 
 
+  
+  
     @RequestMapping(value = "/creerjoueur", method = RequestMethod.POST)
-    public String cookitpPOST(Joueur j, HttpSession couqui) {
+    public String cookitpPOST(String nomdujoueur, HttpSession couqui) {
+        Joueur j= new Joueur();
+        j.setPseudo(nomdujoueur);
         serv.save(j);
         couqui.setAttribute("nomjj", j.getId());
         return "redirect:/lister_parties";
