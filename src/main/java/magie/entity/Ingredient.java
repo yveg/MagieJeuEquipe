@@ -54,6 +54,7 @@ public class Ingredient implements Serializable {
                 this.nom = "Aile de chauve-souris";
                 break;
         }
+    
       
     }
 

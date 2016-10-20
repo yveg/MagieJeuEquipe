@@ -44,9 +44,10 @@ public class PartieController {
         for(int indiceJoueur = 0; indiceJoueur < crudJoueur.count(); indiceJoueur++){
             for(int indiceIngredient = 0; indiceIngredient < 7; indiceIngredient++){
                 ingredients.add(new Ingredient());
-                
+                //crudIngredient.save(ingredients.get(indiceIngredient));
             }
             joueurs.get(indiceJoueur).setIngredients(ingredients);
+            
             //crudIngredients.save(ingredients.get(indiceIngredient));
             crudJoueur.save(joueurs.get(indiceJoueur));
             
@@ -54,6 +55,7 @@ public class PartieController {
         }   
         model.addAttribute("joueurs", crudJoueur.findAll());
         model.addAttribute("joueuractuel", crudJoueur.findOne((Long)cookie.getAttribute("nomjj")).getPseudo());
+        model.addAttribute("tour", 0);
         return "plateau.jsp";
     }
 }
