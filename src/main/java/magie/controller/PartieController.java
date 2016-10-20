@@ -44,11 +44,12 @@ public class PartieController {
         for(int indiceJoueur = 0; indiceJoueur < crudJoueurs.count(); indiceJoueur++){
             for(int indiceIngredient = 0; indiceIngredient < 7; indiceIngredient++){
                 ingredients.add(new Ingredient());
-                crudIngredients.save(ingredients.get(indiceIngredient));
+                
             }
             joueurs.get(indiceJoueur).setIngredients(ingredients);
+            //crudIngredients.save(ingredients.get(indiceIngredient));
             crudJoueurs.save(joueurs.get(indiceJoueur));
         }   
-    return "redirect:/plateauroute";
+    return "plateau.jsp";
     }
 }
