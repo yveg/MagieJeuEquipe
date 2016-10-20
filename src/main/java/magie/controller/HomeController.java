@@ -5,6 +5,7 @@
  */
 package magie.controller;
 
+import javax.servlet.http.HttpSession;
 import magie.entity.Joueur;
 import magie.service.JoueurServiceCrud;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,11 @@ public class HomeController {
     }
     
     @RequestMapping(value = "/", method = RequestMethod.POST) 
-    public String maison (@ModelAttribute("newjoueur") Joueur j) {
+    public String maison (@ModelAttribute("newjoueur") Joueur j,HttpSession session) {
+        j.setRevelation(false);
+        j.setTour((int)serv.count()+1);
         serv.save(j);
+        session.setAttribute("nomjj", j.getId());
         return "redirect:/lister_parties"; 
     }
 }

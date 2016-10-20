@@ -28,11 +28,10 @@ public class PartieController {
         model.addAttribute("parties",parties);
         return "attentePartie.jsp";
     }
-    /* @RequestMapping(value = "/lister_parties", method = RequestMethod.POST)
-    public String cookitpPOST(Partie p, HttpSession couqui) {
-        crud.save(p);
-       couqui.setAttribute("nompp", p.getId()); 
-        return "attentePartie.jsp";
-
-    }*/
+    
+    @RequestMapping(value="/lancerpartie", method = RequestMethod.GET)
+    public String commencerGET(Model model){
+        
+    return "Plateau.jsp";
+    }
 }
