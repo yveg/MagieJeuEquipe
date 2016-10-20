@@ -38,8 +38,16 @@ public class Joueur implements Serializable {
     @JoinColumn(name = "partie_id")
     private Partie partie;
     
-    @OneToMany(mappedBy = "partie")
+    @OneToMany(mappedBy = "joueurs")
     private Collection<Ingredient> ingredients = new ArrayList<>();
+
+    public Collection<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Collection<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
 
     public Partie getPartie() {
         return partie;

@@ -27,13 +27,34 @@ public class Ingredient implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     
-    private List<String> type = new ArrayList<String>(Arrays.asList("Corne de licorne", "Bave de crapaud", "Sang de vierge","Lapis-lazuli","aile-de chauve-souris"));
+    
     private Long id;
     private String nom;
     
     @ManyToOne
     @JoinColumn(name = "joueur_id")
     private Partie joueur;
+
+    public Ingredient() {
+        int nombreAleatoire = (int)Math.floor(Math.random()*5);
+        switch (nombreAleatoire) {
+            case 0:  
+                this.nom = "Corne de licorne";
+                break;
+            case 1:  
+                this.nom = "Bave de crapaud";
+                break;
+            case 2:  
+                this.nom = "Sang de vierge";
+                break;
+            case 3:  
+                this.nom = "Lapis-lazuli";
+                break;
+            case 4:  
+                this.nom = "Aile de chauve-souris";
+                break;
+        }   
+    }
 
     public String getNom() {
         return nom;

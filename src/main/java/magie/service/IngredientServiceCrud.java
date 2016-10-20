@@ -5,11 +5,14 @@
  */
 package magie.service;
 
+import magie.entity.Ingredient;
+import magie.entity.Joueur;
+import org.springframework.data.repository.CrudRepository;
+
 /**
  *
  * @author admin
  */
-public interface IngredientServiceCrud {
-    
+public interface IngredientServiceCrud extends CrudRepository<Ingredient, Long>{
     
 }
