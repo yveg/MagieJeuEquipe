@@ -53,7 +53,8 @@ public class Ingredient implements Serializable {
             case 4:  
                 this.nom = "Aile de chauve-souris";
                 break;
-        }   
+        }
+      
     }
 
     public String getNom() {

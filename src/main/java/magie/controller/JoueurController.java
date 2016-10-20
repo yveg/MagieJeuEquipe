@@ -43,7 +43,7 @@ public class JoueurController {
     public String listerattentejoueurGET(Model m, HttpSession couqui) {
         // m.addAttribute("nomjoueur", serv.findAllByOrderByIdAsc());
         m.addAttribute("nomjoueur", serv.findAll());
-         m.addAttribute("joueuractuel", serv.findOne((Long)couqui.getAttribute("nomjj")).getPseudo());
+        m.addAttribute("joueuractuel", serv.findOne((Long)couqui.getAttribute("nomjj")).getPseudo());
         return "attenteJoueur.jsp";
 
     }

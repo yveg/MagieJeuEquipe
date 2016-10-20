@@ -26,30 +26,34 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class PartieController {
-    @Autowired PartieServiceCrud crudParties;
-    @Autowired JoueurServiceCrud crudJoueurs;
-    @Autowired IngredientServiceCrud crudIngredients;
+    @Autowired PartieServiceCrud crudPartie;
+    @Autowired JoueurServiceCrud crudJoueur;
+    @Autowired IngredientServiceCrud crudIngredient;
     
     @RequestMapping(value="/lister_parties", method = RequestMethod.GET)
     public String listerGET(Model model){
-        List<Partie> parties = (List) crudParties.findAll();
+        List<Partie> parties = (List) crudPartie.findAll();
         model.addAttribute("parties",parties);
         return "attentePartie.jsp";
     }
     
     @RequestMapping(value="/lancerpartie", method = RequestMethod.GET)
-    public String commencerGET(Model model){
-        List<Joueur> joueurs = (List) crudJoueurs.findAll();
+    public String commencerGET(Model model, HttpSession cookie){
+        List<Joueur> joueurs = (List) crudJoueur.findAll();
         List<Ingredient> ingredients = new ArrayList<>();
-        for(int indiceJoueur = 0; indiceJoueur < crudJoueurs.count(); indiceJoueur++){
+        for(int indiceJoueur = 0; indiceJoueur < crudJoueur.count(); indiceJoueur++){
             for(int indiceIngredient = 0; indiceIngredient < 7; indiceIngredient++){
                 ingredients.add(new Ingredient());
                 
             }
             joueurs.get(indiceJoueur).setIngredients(ingredients);
             //crudIngredients.save(ingredients.get(indiceIngredient));
-            crudJoueurs.save(joueurs.get(indiceJoueur));
+            crudJoueur.save(joueurs.get(indiceJoueur));
+            
+        
         }   
-    return "plateau.jsp";
+        model.addAttribute("joueurs", crudJoueur.findAll());
+        model.addAttribute("joueuractuel", crudJoueur.findOne((Long)cookie.getAttribute("nomjj")).getPseudo());
+        return "plateau.jsp";
     }
 }
