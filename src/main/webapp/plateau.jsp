@@ -32,32 +32,32 @@
             </c:forEach>
         </div>
         <div>
-            <img src="Images/dos2carte/002.jpg" alt=""/>
-            <p> nom joueur1 <input type="image" name="jcard_img01" src="/images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp;
-                <input type="image" id="" name="jcard_img01" src="/Images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img02" src="/Images/dos2carte/002.jpg" width="25%" height="25%">&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img03" src="/Images/dos2carte/003.jpg" width="25%" height="25%">&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img04" src="/images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img05" src="/images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img06" src="/images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
+            <img src="Images/dos2carte/003.jpg" alt=""/>
+            <p> nom joueur1 <input type="image" name="jcard_img01" src="Images/dos2carte/001.png" width="25%" height="25%" />&nbsp;&nbsp;
+                <input type="image" id="" name="jcard_img01" src="Images/dos2carte/001.png" width="25%" height="25%" />&nbsp;&nbsp; 
+                <input type="image" id="" name="jcard_img02" src="Images/dos2carte/002.jpg" width="25%" height="25%" />&nbsp;&nbsp; 
+                <input type="image" id="" name="jcard_img03" src="Images/dos2carte/003.jpg" width="25%" height="25%">&nbsp;&nbsp; 
+                <input type="image" id="" name="jcard_img04" src="Images/dos2carte/004.png" width="25%" height="25%">&nbsp;&nbsp; 
+                <input type="image" id="" name="jcard_img05" src="Images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
+                <input type="image" id="" name="jcard_img06" src="Images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
             </p>
 
-            <p> nom joueur2 <input type="image" name="jcard_img02" src="/images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp;
-                <input type="image" id="" name="jcard_img071" src="/Images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img08" src="/Images/dos2carte/002.jpg" width="25%" height="25%">&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img09" src="/Images/dos2carte/003.jpg" width="25%" height="25%">&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_im10" src="/images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img11" src="/images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img12" src="/images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
+            <p> nom joueur2 <input type="image" name="jcard_img02" src="Images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp;
+                <input type="image" id="" name="jcard_img071" src="Images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
+                <input type="image" id="" name="jcard_img08" src="Images/dos2carte/002.jpg" width="25%" height="25%">&nbsp;&nbsp; 
+                <input type="image" id="" name="jcard_img09" src="Images/dos2carte/003.jpg" width="25%" height="25%">&nbsp;&nbsp; 
+                <input type="image" id="" name="jcard_im10" src="Images/dos2carte/004.png" width="25%" height="25%">&nbsp;&nbsp; 
+                <input type="image" id="" name="jcard_img11" src="Images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
+                <input type="image" id="" name="jcard_img12" src="Images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
             </p>
 
-            <p> nom joueur3 <input type="image" name="jcard_img03" src="/images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp;
-                <input type="image" name="jcard_img01" src="/images/dos2carte/001.png" width="25%" height="25%">&nbsp; &nbsp;
-                <input type="image" id="" name="jcard_img13" src="/Images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img14" src="/Images/dos2carte/002.jpg" width="25%" height="25%">&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img15" src="/Images/dos2carte/003.jpg" width="25%" height="25%">&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img16" src="/images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img17" src="/images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
+            <p> nom joueur3 <input type="image" name="jcard_img03" src="Images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp;
+                <input type="image" name="jcard_img01" src="Images/dos2carte/001.png" width="25%" height="25%">&nbsp; &nbsp;
+                <input type="image" id="" name="jcard_img13" src="Images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
+                <input type="image" id="" name="jcard_img14" src="Images/dos2carte/002.jpg" width="25%" height="25%">&nbsp;&nbsp; 
+                <input type="image" id="" name="jcard_img15" src="Images/dos2carte/003.jpg" width="25%" height="25%">&nbsp;&nbsp; 
+                <input type="image" id="" name="jcard_img16" src="Images/dos2carte/004.png" width="25%" height="25%">&nbsp;&nbsp; 
+                <input type="image" id="" name="jcard_img17" src="Images/dos2carte/001.png" width="25%" height="25%">&nbsp;&nbsp; 
             </p>
 
         </div>
