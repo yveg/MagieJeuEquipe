@@ -40,12 +40,14 @@ public class PartieController {
             crudPartie.save(partie);
         }
         List<Partie> parties = (List) crudPartie.findAll();
-        model.addAttribute("parties",parties);    
+        Partie maPartie = new Partie();
+        model.addAttribute("parties",parties);
+        model.addAttribute("mapartie",maPartie);
         return "attentePartie.jsp";
     }
     
     @RequestMapping(value="/lister_parties", method = RequestMethod.POST)
-    public String listerPOST(@ModelAttribute("parties") Partie partie,Model model){
+    public String listerPOST(@ModelAttribute("id") Long idPartie,Model model){
         crudIngredient.deleteAll();
         if(crudIngredient.count() == 0)
         {
@@ -58,7 +60,8 @@ public class PartieController {
                     ingredient.setJoueur(joueurs.get(indiceJoueur));            
                     crudIngredient.save(ingredient);
                 }
-                joueurs.get(indiceJoueur).setPartie(partie);
+               
+                joueurs.get(indiceJoueur).setPartie(crudPartie.findOne(idPartie));
                 crudJoueur.save(joueurs.get(indiceJoueur));
             }   
     }

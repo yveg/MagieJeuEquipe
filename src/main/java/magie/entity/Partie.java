@@ -31,6 +31,11 @@ public class Partie implements Serializable {
     @OneToMany(mappedBy = "partie")
     private Collection<Joueur> joueurs = new ArrayList<>();
 
+    public Partie() {
+    }
+
+    
+    
     public int getTourJoueur() {
         return tourJoueur;
     }
@@ -41,6 +46,10 @@ public class Partie implements Serializable {
 
     public Collection<Joueur> getJoueurs() {
         return joueurs;
+    }
+
+    public Partie(Long id) {
+        this.id = id;
     }
 
     public void setJoueurs(Collection<Joueur> joueurs) {
