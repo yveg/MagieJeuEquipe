@@ -11,14 +11,15 @@ import javax.servlet.http.HttpSession;
 import magie.entity.Ingredient;
 import magie.entity.Joueur;
 import magie.entity.Partie;
-import magie.service.IngredientServiceCrud;
-import magie.service.JoueurServiceCrud;
-import magie.service.PartieServiceCrud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import magie.DAO.IngredientDAO;
+import magie.DAO.JoueurDAO;
+import magie.DAO.PartieDAO;
 
 /**
  *
@@ -26,19 +27,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class PartieController {
-    @Autowired PartieServiceCrud crudPartie;
-    @Autowired JoueurServiceCrud crudJoueur;
-    @Autowired IngredientServiceCrud crudIngredient;
+    @Autowired PartieDAO crudPartie;
+    @Autowired JoueurDAO crudJoueur;
+    @Autowired IngredientDAO crudIngredient;
     
     @RequestMapping(value="/lister_parties", method = RequestMethod.GET)
     public String listerGET(Model model){
         List<Partie> parties = (List) crudPartie.findAll();
-        model.addAttribute("parties",parties);
+        model.addAttribute("parties",parties);    
         return "attentePartie.jsp";
     }
     
     @RequestMapping(value="/lancerpartie", method = RequestMethod.GET)
-    public String commencerGET(Model model, HttpSession cookie){
+    public String commencerGET(@ModelAttribute("mesparties") Partie partie, Model model, HttpSession cookie){
         crudIngredient.deleteAll();
         if(crudIngredient.count() == 0)
         {
@@ -50,7 +51,9 @@ public class PartieController {
                     ingredients.add(ingredient);
                     ingredient.setJoueur(joueurs.get(indiceJoueur));            
                     crudIngredient.save(ingredient);
-                }  
+                }
+                joueurs.get(indiceJoueur).setPartie(partie);
+                crudJoueur.save(joueurs.get(indiceJoueur));
             }   
             model.addAttribute("joueurs", crudJoueur.findAll());
             model.addAttribute("joueuractuel", crudJoueur.findOne((Long)cookie.getAttribute("nomjj")).getPseudo());

@@ -10,7 +10,7 @@
     
     setInterval(function(){ 
             $('#parties').text("<c:forEach items='${parties}' var='mesparties'>");
-            $('#parties').append("<a href='attentejoueur'>${mesparties.nom} </a>");
+            $('#parties').append("<a href='attentejoueur/${mesparties}'>${mesparties.nom} </a>");
             $('#parties').append("<br></c:forEach>");
         }, 5000);
 

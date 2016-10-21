@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package magie.service;
+package magie.DAO;
 
 import magie.entity.Partie;
 import org.springframework.data.repository.CrudRepository;
@@ -12,6 +12,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author admin
  */
-public interface PartieServiceCrud extends CrudRepository<Partie, Long>{
+public interface PartieDAO extends CrudRepository<Partie, Long>{
     
 }

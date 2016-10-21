@@ -2,13 +2,13 @@ package magie.controller;
 
 import javax.servlet.http.HttpSession;
 import magie.entity.Joueur;
-import magie.service.JoueurServiceCrud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import magie.DAO.JoueurDAO;
 
 /**
  *
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class JoueurController {
 
     @Autowired
-    private JoueurServiceCrud serv; 
+    private JoueurDAO serv; 
 
   
   

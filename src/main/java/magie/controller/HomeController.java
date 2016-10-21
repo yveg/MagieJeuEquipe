@@ -8,14 +8,14 @@ package magie.controller;
 import javax.servlet.http.HttpSession;
 import magie.entity.Joueur;
 import magie.entity.Partie;
-import magie.service.JoueurServiceCrud;
-import magie.service.PartieServiceCrud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import magie.DAO.JoueurDAO;
+import magie.DAO.PartieDAO;
 
 /**
  *
@@ -25,9 +25,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
     
     @Autowired
-    private JoueurServiceCrud serv;
+    private JoueurDAO serv;
     @Autowired
-    private PartieServiceCrud crudPartie;
+    private PartieDAO crudPartie;
     
     @RequestMapping(value = "/", method = RequestMethod.GET) 
     public String maison (Model m) {
@@ -36,6 +36,7 @@ public class HomeController {
         if(crudPartie.count() == 0){
             Partie partie = new Partie();
             partie.setNom("Parite magiemagie");
+            partie.setTourJoueur(0);
             crudPartie.save(partie);
         }
         return "home.jsp"; 

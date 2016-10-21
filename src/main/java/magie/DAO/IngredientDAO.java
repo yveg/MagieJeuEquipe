@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package magie.service;
+package magie.DAO;
 
 import magie.entity.Ingredient;
 import magie.entity.Joueur;
@@ -13,6 +13,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author admin
  */
-public interface IngredientServiceCrud extends CrudRepository<Ingredient, Long>{
+public interface IngredientDAO extends CrudRepository<Ingredient, Long>{
     
 }

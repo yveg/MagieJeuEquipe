@@ -5,11 +5,11 @@
  */
 package magie.controller;
 
-import magie.service.PartieServiceCrud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import magie.DAO.PartieDAO;
 
 /**
  *
@@ -24,7 +24,7 @@ public class IngredientController {
     
     
     @Autowired 
-     private PartieServiceCrud aaa;
+     private PartieDAO aaa;
     
     
     @RequestMapping(value = "/invisibilitie",method = RequestMethod.POST)

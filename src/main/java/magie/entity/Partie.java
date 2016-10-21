@@ -26,9 +26,26 @@ public class Partie implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nom;
+    private int tourJoueur;
     
     @OneToMany(mappedBy = "partie")
     private Collection<Joueur> joueurs = new ArrayList<>();
+
+    public int getTourJoueur() {
+        return tourJoueur;
+    }
+
+    public void setTourJoueur(int tourJoueur) {
+        this.tourJoueur = tourJoueur;
+    }
+
+    public Collection<Joueur> getJoueurs() {
+        return joueurs;
+    }
+
+    public void setJoueurs(Collection<Joueur> joueurs) {
+        this.joueurs = joueurs;
+    }
 
     public String getNom() {
         return nom;
