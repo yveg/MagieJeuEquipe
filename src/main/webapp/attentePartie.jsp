@@ -33,7 +33,7 @@
         <div id="parties">
             <c:forEach items="${parties}" var="mesparties">
                 <form:form modelAttribute="parties" >   
-                    <form:input path="nom"/>
+                    
                     <input type="submit" value='${mesparties}'/>  
                 </form:form>
             </c:forEach>
