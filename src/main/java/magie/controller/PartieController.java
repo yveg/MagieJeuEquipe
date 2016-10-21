@@ -33,13 +33,19 @@ public class PartieController {
     
     @RequestMapping(value="/lister_parties", method = RequestMethod.GET)
     public String listerGET(Model model){
+        if(crudPartie.count() == 0){
+            Partie partie = new Partie();
+            partie.setNom("Parite magiemagie");
+            partie.setTourJoueur(0);
+            crudPartie.save(partie);
+        }
         List<Partie> parties = (List) crudPartie.findAll();
         model.addAttribute("parties",parties);    
         return "attentePartie.jsp";
     }
     
-    @RequestMapping(value="/lancerpartie", method = RequestMethod.GET)
-    public String commencerGET(@ModelAttribute("mesparties") Partie partie, Model model, HttpSession cookie){
+    @RequestMapping(value="/lister_parties", method = RequestMethod.POST)
+    public String listerPOST(@ModelAttribute("parties") Partie partie,Model model){
         crudIngredient.deleteAll();
         if(crudIngredient.count() == 0)
         {
@@ -55,10 +61,18 @@ public class PartieController {
                 joueurs.get(indiceJoueur).setPartie(partie);
                 crudJoueur.save(joueurs.get(indiceJoueur));
             }   
+    }
+        return "redirect:/attentejoueur";
+    }
+    
+    @RequestMapping(value="/lancerpartie", method = RequestMethod.GET)
+    public String commencerGET( Model model, HttpSession cookie){
+            //List<Joueur> joueurs = (List) crudJoueur.findAll();
             model.addAttribute("joueurs", crudJoueur.findAll());
             model.addAttribute("joueuractuel", crudJoueur.findOne((Long)cookie.getAttribute("nomjj")).getPseudo());
             model.addAttribute("tour", 0);
-        }
-        return "plateau.jsp";
+    return "plateau.jsp";    
     }
+       
+ 
 }

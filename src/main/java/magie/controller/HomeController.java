@@ -33,17 +33,11 @@ public class HomeController {
     public String maison (Model m) {
         m.addAttribute("titre", "Jeu de Magie entre Sorciers");
         m.addAttribute("joueur",new Joueur());
-        if(crudPartie.count() == 0){
-            Partie partie = new Partie();
-            partie.setNom("Parite magiemagie");
-            partie.setTourJoueur(0);
-            crudPartie.save(partie);
-        }
         return "home.jsp"; 
     }
     
     @RequestMapping(value = "/", method = RequestMethod.POST) 
-    public String maison (@ModelAttribute("newjoueur") Joueur j,HttpSession session) {
+    public String maison (@ModelAttribute("joueur") Joueur j,HttpSession session) {
         j.setRevelation(false);
         j.setTour((int)serv.count()+1);
         serv.save(j);
