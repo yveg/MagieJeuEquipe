@@ -28,62 +28,41 @@
         <h1>Plateau du jeu en cours</h1>
         <p class="shadow">Vous &ecirc;tes: ${joueuractuel}</p>
         <p class="shadow">le tour est &agrave;: ${tour}</p>
-        <hr class="style18">
+        
+        <p>voici tes cartes:<br>
+            <c:forEach var="displayjoueur" items="${joueurs}">
+                    <c:if test="${joueuractuel == displayjoueur.pseudo}">
+
+                        <c:out value="${displayjoueur.pseudo}"></c:out>&nbsp;&nbsp;
+                        <c:forEach var="displayingredient" items="${joueurs[0].ingredients}">
+                            <input type="image"  src="Images/dos2carte/0001.png" onclick="setidcard" ></input> &nbsp;&nbsp;  
+                        </c:forEach>
+                    </c:if>
+            </c:forEach>
+        </p>
+
+        <p>voici tes action possibles:<br>
+            <input class="boutton" type="button" value="INVISIBILITE"/> &nbsp;&nbsp;<input type="button" value="
+                                                                           FILTRE D’AMOUR"/>&nbsp;&nbsp;<input type="button" value="HYPNOSE"/> &nbsp;&nbsp;<input type="button" value="
+                                                                           DIVINATION"/>&nbsp;&nbsp;<input type="button" value="SOMMEIL-PROFOND"/> &nbsp;&nbsp;
+        </p>
+        <hr class="style18">mmmmm<br>
         <div class="carre">
             <p class="shadow titre">Nom des joueurs en liste:</p>
-            <!-- voir ingredients.joueur_id
-            faire foreahc pour chaque ingredients+ display.ingredient.nom
-            -->
             <p>
-            <c:forEach var="displayjoueur" items="${joueurs}">
-                <c:if test="${joueuractuel != displayjoueur.pseudo}">
-                   
-                    <c:out value="  ${displayjoueur.pseudo}"> </c:out>  &nbsp;&nbsp;
-                           <c:forEach var="displayingredient" items="${displayjoueur.ingredients}">
-                               <c:out   value ="  ${displayingredient.nom}" ></c:out><input type="image" id="" name="jcard_img01" src="Images/dos2carte/0001.png" /> &nbsp;&nbsp; 555 
-                    </c:forEach>
-                        
-                    
-                   
-                </c:if>
-            </p>
-            <hr class="style13">
-                <!--<input type="image" name="jcard_img01" src="Images/dos2carte/002.jpg" /><br> &nbsp;&nbsp;-->
+                <c:forEach var="displayjoueur" items="${joueurs}">
+                    <c:if test="${joueuractuel != displayjoueur.pseudo}">
+
+                        <c:out value="${displayjoueur.pseudo}"></c:out>&nbsp;&nbsp;
+                        <c:forEach var="displayingredient" items="${displayjoueur.ingredients}">
+                            <input type="image"  src="Images/dos2carte/0001.png" onclick="setidcard" ></input> &nbsp;&nbsp;  
+                        </c:forEach>
+                    </c:if>
+                </p>
+                <hr class="style13">
             </c:forEach>
         </div>
 
-        <hr>
-        <div>
-            <p> nom joueur1 ${displayjoueur.pseudo} 
-                <input type="image" name="jcard_img01" src="Images/dos2carte/00001.png" />&nbsp;&nbsp;
-                <input type="image" id="" name="jcard_img01" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img02" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img03" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img04" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img05" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img06" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
-            </p>
-
-            <p> nom joueur2 ${displayjoueur[2].pseudo}
-                <input type="image" name="jcard_img02" src="Images/dos2carte/0001.png" />&nbsp;&nbsp;
-                <input type="image" id="" name="jcard_img07" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img08" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img09" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_im10" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img11" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img12" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
-            </p>
-
-            <p> nom joueur3 
-                <input type="image" name="jcard_img03" src="Images/dos2carte/0001.png" />&nbsp;&nbsp;
-                <input type="image" name="jcard_img01" src="Images/dos2carte/0001.png" />&nbsp; &nbsp;
-                <input type="image" id="" name="jcard_img13" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img14" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img15" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img16" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
-                <input type="image" id="" name="jcard_img17" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
-            </p>
-
-        </div>
+        <hr class="style11">
     </body>
 </html>
