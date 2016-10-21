@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,19 +25,44 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Ingredient implements Serializable {
 
+    public enum TypeIngredient{
+        BAVE_CRAPAUD,
+        CORNE_LICORNE
+    }
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     
-    
     private Long id;
     private String nom;
+    
+    @Enumerated(EnumType.STRING)
+    private TypeIngredient typeIngredient;
     private String image;
     
     @ManyToOne
     @JoinColumn(name = "joueur_id")
     private Joueur joueur;
 
+    public TypeIngredient getTypeIngredient() {
+        return typeIngredient;
+    }
+
+    public void setTypeIngredient(TypeIngredient typeIngredient) {
+        this.typeIngredient = typeIngredient;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    
+    
     public Ingredient() {
         int nombreAleatoire = (int)Math.floor(Math.random()*5);
         switch (nombreAleatoire) {
