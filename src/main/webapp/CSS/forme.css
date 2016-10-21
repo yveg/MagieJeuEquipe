@@ -76,12 +76,14 @@ hr.style11 {
 	height: 6px;
 	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
     border: 0;
+    background-color:#330033;
 }
 
 hr.style13 {
 	height: 10px;
 	border: 0;
 	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+        
 }
 
 hr.style18 { 
@@ -105,4 +107,26 @@ hr.style18:before {
 .titre {
     font-size: 1.5em;
     
+}
+p.boutton {
+    color: #08233e;
+    font:2.4em Futura,'Century Gothic',AppleGothic,sans-serif;
+    font-size: 70%;
+    padding: 14px;
+     background: url(overlay.png) reapeat-x center #ffc00;
+     background-color: rgba(255,204,0,1);
+     border:1px solid #ffc00;
+     -moz-border-radius: 10px;
+     -webkit-border-radius: 10px;
+     border-radius: 10px;
+     border-bottom: 1px solid #9f9f9f;
+     -moz-box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+     -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+     box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+     cursor: pointer;
+     text-align: center;
+}
+
+boutton:hover {
+    background-color: rgba(255,204,0,0.8);
 }

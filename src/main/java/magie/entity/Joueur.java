@@ -41,23 +41,16 @@ public class Joueur implements Serializable {
     
     @OneToMany(mappedBy = "joueur")
     private List<Ingredient> ingredients = new ArrayList<>();
-
-    public List<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-    }
-
-    public Partie getPartie() {
-        return partie;
-    }
     
-    public void setPartie(Partie partie) {
-        this.partie = partie;
+    private String pseudo;
+
+    public Long getId() {
+        return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Integer getTour() {
         return tour;
@@ -83,6 +76,22 @@ public class Joueur implements Serializable {
         this.avatar = avatar;
     }
 
+    public Partie getPartie() {
+        return partie;
+    }
+
+    public void setPartie(Partie partie) {
+        this.partie = partie;
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
     public String getPseudo() {
         return pseudo;
     }
@@ -91,15 +100,7 @@ public class Joueur implements Serializable {
         this.pseudo = pseudo;
     }
 
-    private String pseudo;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    
 
     @Override
     public int hashCode() {

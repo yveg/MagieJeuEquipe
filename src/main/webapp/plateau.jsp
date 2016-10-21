@@ -34,17 +34,18 @@
                     <c:if test="${joueuractuel == displayjoueur.pseudo}">
 
                         <c:out value="${displayjoueur.pseudo}"></c:out>&nbsp;&nbsp;
-                        <c:forEach var="displayingredient" items="${joueurs[0].ingredients}">
+                        <c:forEach var="displayingredient" items="${displayjoueur.ingredients}"> d ${displayjoueur.ingredients} 5
                             <input type="image"  src="Images/dos2carte/0001.png" onclick="setidcard" ></input> &nbsp;&nbsp;  
                         </c:forEach>
                     </c:if>
             </c:forEach>
         </p>
-
-        <p>voici tes action possibles:<br>
-            <input class="boutton" type="button" value="INVISIBILITE"/> &nbsp;&nbsp;<input type="button" value="
-                                                                           FILTRE D’AMOUR"/>&nbsp;&nbsp;<input type="button" value="HYPNOSE"/> &nbsp;&nbsp;<input type="button" value="
-                                                                           DIVINATION"/>&nbsp;&nbsp;<input type="button" value="SOMMEIL-PROFOND"/> &nbsp;&nbsp;
+        <p>voici tes action possibles:</p>
+        <p class="boutton" >
+            <input  type="button" value="INVISIBILITE"/> &nbsp;&nbsp;
+            <input type="button" value="FILTRE D’AMOUR"/>&nbsp;&nbsp;
+            <input type="button" value="HYPNOSE"/> &nbsp;&nbsp;<input type="button" value="DIVINATION"/>&nbsp;&nbsp;
+            <input type="button" value="SOMMEIL-PROFOND"/> &nbsp;&nbsp;
         </p>
         <hr class="style18">mmmmm<br>
         <div class="carre">
