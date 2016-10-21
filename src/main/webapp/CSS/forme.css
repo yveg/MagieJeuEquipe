@@ -1,23 +1,108 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
 /* 
     Created on : 19 oct. 2016, 10:34:05
-    Author     : admin
+    Author     : yves ngambali
 */
 
 body {
     font-family: cursive;
     font-size: 1em;
-    background-color: indigo;
+    background-color: #330033;
     color: burlywood;
+      text-shadow:
+        3px 3px 0 #000,
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
 }
 h1 {
+    display:block;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: 40px;
     text-align: center;
+    align-content: center;
+    float: center;
+      text-shadow:
+        3px 3px 0 #000,
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
 }
 .lancerjeu input{
-    text-align: left;
+    text-align: center;
     float:right;
+    margin-right: 400px; 
+    
+}
+
+.carre {
+    margin-left: 100px;
+    padding-left: 25px;
+    width: 80%;
+    //background-color: green;
+    background-color: rgba(0, 128, 0,0.4);
+    //opacity: 0.4;
+    border-style: dashed;
+    border-color: bisque aliceblue;
+    //border-color: #ff0000 #0000ff;
+}
+.shadow {
+    margin-left: 100px;
+     text-shadow:
+        3px 3px 0 #000,
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+.div1{
+    font-family: cursive;
+        color: burlywood;
+    text-shadow:
+        3px 3px 0 #000,
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+hr.style11 {
+	height: 6px;
+	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
+    border: 0;
+}
+
+hr.style13 {
+	height: 10px;
+	border: 0;
+	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+
+hr.style18 { 
+  height: 30px; 
+  border-style: solid; 
+  border-color: chartreuse;
+  border-width: 1px 0 0 0; 
+  border-radius: 300px; 
+} 
+hr.style18:before { 
+  display: block; 
+  content: ""; 
+  height: 30px; 
+  margin-top: -31px; 
+  border-style: solid; 
+  border-color: darkgreen;
+  border-width: 0 0 1px 0; 
+  border-radius: 30px; 
+}
+
+.titre {
+    font-size: 1.5em;
+    
 }

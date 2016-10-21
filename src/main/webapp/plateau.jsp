@@ -13,28 +13,50 @@
         <title>JSP Page</title>
         <link href="CSS/forme.css" rel="stylesheet" type="text/css"/>
         <script src="JS/jquery-3.1.1.js" type="text/javascript"></script>
-        <script type="text/javascript">
+        <!--<script type="text/javascript">
             //setInterval("alert("echo"),location.reload(forceGet), 5000);
             //setInterval(function(){ alert("Hello"); }, 5000);
             setInterval(function () {
                 location.reload(true);
             }, 5000);
+            
+            get
         </script>
+        -->
     </head>
     <body>
         <h1>Plateau du jeu en cours</h1>
         <p class="shadow">Vous &ecirc;tes: ${joueuractuel}</p>
         <p class="shadow">le tour est &agrave;: ${tour}</p>
-        <hr>
+        <hr class="style18">
         <div class="carre">
-            <!-- scan la table joueurs et append le nom+br>-->
+            <p class="shadow titre">Nom des joueurs en liste:</p>
+            <!-- voir ingredients.joueur_id
+            faire foreahc pour chaque ingredients+ display.ingredient.nom
+            -->
+            <p>
             <c:forEach var="displayjoueur" items="${joueurs}">
-                ${displayjoueur.pseudo} &nbsp;&nbsp;
+                <c:if test="${joueuractuel != displayjoueur.pseudo}">
+                   
+                    <c:out value="  ${displayjoueur.pseudo}"> </c:out>  &nbsp;&nbsp;
+                           <c:forEach var="displayingredient" items="${displayjoueur.ingredients}">
+                               <c:out   value ="  ${displayingredient.nom}" ></c:out><input type="image" id="" name="jcard_img01" src="Images/dos2carte/0001.png" /> &nbsp;&nbsp; 555 
+                    </c:forEach>
+                        
+                    
+                   
+                </c:if>
+            </p>
+            <hr class="style13">
+                <!--<input type="image" name="jcard_img01" src="Images/dos2carte/002.jpg" /><br> &nbsp;&nbsp;-->
             </c:forEach>
         </div>
+
+        <hr>
         <div>
-            <p> nom joueur1 ${displayjoueur.pseudo} <input type="image" name="jcard_img01" src="Images/dos2carte/00001.png" />&nbsp;&nbsp;
-                <input type="image" id="" name="jcard_img01" src="Images/dos2carte/00001.png" />&nbsp;&nbsp; 
+            <p> nom joueur1 ${displayjoueur.pseudo} 
+                <input type="image" name="jcard_img01" src="Images/dos2carte/00001.png" />&nbsp;&nbsp;
+                <input type="image" id="" name="jcard_img01" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
                 <input type="image" id="" name="jcard_img02" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
                 <input type="image" id="" name="jcard_img03" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
                 <input type="image" id="" name="jcard_img04" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
@@ -42,8 +64,9 @@
                 <input type="image" id="" name="jcard_img06" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
             </p>
 
-            <p> nom joueur2 <input type="image" name="jcard_img02" src="Images/dos2carte/0001.png" />&nbsp;&nbsp;
-                <input type="image" id="" name="jcard_img071" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
+            <p> nom joueur2 ${displayjoueur[2].pseudo}
+                <input type="image" name="jcard_img02" src="Images/dos2carte/0001.png" />&nbsp;&nbsp;
+                <input type="image" id="" name="jcard_img07" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
                 <input type="image" id="" name="jcard_img08" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
                 <input type="image" id="" name="jcard_img09" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
                 <input type="image" id="" name="jcard_im10" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
@@ -51,7 +74,8 @@
                 <input type="image" id="" name="jcard_img12" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
             </p>
 
-            <p> nom joueur3 <input type="image" name="jcard_img03" src="Images/dos2carte/0001.png" />&nbsp;&nbsp;
+            <p> nom joueur3 
+                <input type="image" name="jcard_img03" src="Images/dos2carte/0001.png" />&nbsp;&nbsp;
                 <input type="image" name="jcard_img01" src="Images/dos2carte/0001.png" />&nbsp; &nbsp;
                 <input type="image" id="" name="jcard_img13" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
                 <input type="image" id="" name="jcard_img14" src="Images/dos2carte/0001.png" />&nbsp;&nbsp; 
