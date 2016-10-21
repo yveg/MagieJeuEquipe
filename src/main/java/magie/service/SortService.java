@@ -19,47 +19,52 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author admin
  */
 public class SortService {
-    
-    
-  @Autowired JoueurDAO crudJoueur;
-  @Autowired IngredientDAO crudIngredients; 
-  
-private JoueurDAO crudSort;
-  
-  
-    
-  public void invisibilitie(Long joueurlance, Long vectime ){
-      
-   List<Joueur> joueurs = (List) crudJoueur.findAll();
-   
-      List<Ingredient> ingredients =(List) joueurs.get(0).getIngredients() ;
-     Math.floor(Math.random()*7);
-     
-      //ingredients.add(floor(Math.random()*7));
-      
-      
-      
-      
-          ingredients.addAll(ingredients);
-                  crudJoueur.findOne(1L).getIngredients();
-           
-      
+
+    @Autowired
+    JoueurDAO crudJoueur;
+    @Autowired
+    IngredientDAO crudIngredients;
+
+    private JoueurDAO crudSort;
+    private IngredientDAO crudIng;
+
+    public void invisibilitie(long joueurlance) {
+
+        // Verifie qu'on possède bien : bave de crapaud + corne licorne
+        List<Ingredient> bavesCrapaud = crudIngredients.findAllByJoueurIdAndTypeIngredient(joueurlance, Ingredient.TypeIngredient.BAVE_CRAPAUD);
+        List<Ingredient> cornesLicorne = crudIngredients.findAllByJoueurIdAndTypeIngredient(joueurlance, Ingredient.TypeIngredient.CORNE_LICORNE);
+        if( bavesCrapaud.size()==0 || cornesLicorne.size()==0 ){
+            throw new RuntimeException("Pas de cartes pour lancer ce sort");
+        }
+        
+        // Déduit ma bave de crapaud et ma corne de licorne de mes ingredients
+        crudIngredients.delete(bavesCrapaud.get(0));
+        crudIngredients.delete(cornesLicorne.get(0));
+        
+        // Recupere ts joueurs
+        List<Joueur> joueurs = (List) crudJoueur.findAll();
+
+        // Récupère joueur destination
+        Joueur moi = crudJoueur.findOne(joueurlance);
+
+        // Récupérer une carte chez chaque joueur
+        for(Joueur joueur : joueurs){
+            
+            if(joueur.getId()!=moi.getId() && joueur.getIngredients().size()>=1){
+                
+                Ingredient ingredientARecuperer = joueur.getIngredients().get(0);
+                
+                joueur.getIngredients().remove(ingredientARecuperer);
+                moi.getIngredients().add(ingredientARecuperer);
+                ingredientARecuperer.setJoueur(moi);
+                
+                crudIngredients.save(ingredientARecuperer);
+            }
+        }
+        
+        
        
-       
-         
-          
-         
-     
-  }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    }
+
 }
