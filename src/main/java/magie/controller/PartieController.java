@@ -39,6 +39,7 @@ public class PartieController {
     
     @RequestMapping(value="/lancerpartie", method = RequestMethod.GET)
     public String commencerGET(Model model, HttpSession cookie){
+        crudIngredient.deleteAll();
         if(crudIngredient.count() == 0)
         {
             List<Joueur> joueurs = (List) crudJoueur.findAll();
