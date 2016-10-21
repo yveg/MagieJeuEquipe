@@ -39,23 +39,22 @@ public class PartieController {
     
     @RequestMapping(value="/lancerpartie", method = RequestMethod.GET)
     public String commencerGET(Model model, HttpSession cookie){
-        List<Joueur> joueurs = (List) crudJoueur.findAll();
-        
-        for(int indiceJoueur = 0; indiceJoueur < crudJoueur.count(); indiceJoueur++){
-            List<Ingredient> ingredients = new ArrayList<>();
-            for(int indiceIngredient = 0; indiceIngredient < 7; indiceIngredient++){
-                Ingredient ingredient = new Ingredient();
-                
-                ingredients.add(ingredient);
-                ingredient.setJoueur(joueurs.get(indiceJoueur));            
-                crudIngredient.save(ingredient);
-            }
-            
-           
-        }   
-        model.addAttribute("joueurs", crudJoueur.findAll());
-        model.addAttribute("joueuractuel", crudJoueur.findOne((Long)cookie.getAttribute("nomjj")).getPseudo());
-        model.addAttribute("tour", 0);
+        if(crudIngredient.count() == 0)
+        {
+            List<Joueur> joueurs = (List) crudJoueur.findAll();
+            for(int indiceJoueur = 0; indiceJoueur < crudJoueur.count(); indiceJoueur++){
+                List<Ingredient> ingredients = new ArrayList<>();
+                for(int indiceIngredient = 0; indiceIngredient < 7; indiceIngredient++){
+                    Ingredient ingredient = new Ingredient();
+                    ingredients.add(ingredient);
+                    ingredient.setJoueur(joueurs.get(indiceJoueur));            
+                    crudIngredient.save(ingredient);
+                }  
+            }   
+            model.addAttribute("joueurs", crudJoueur.findAll());
+            model.addAttribute("joueuractuel", crudJoueur.findOne((Long)cookie.getAttribute("nomjj")).getPseudo());
+            model.addAttribute("tour", 0);
+        }
         return "plateau.jsp";
     }
 }

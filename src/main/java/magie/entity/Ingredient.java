@@ -30,6 +30,7 @@ public class Ingredient implements Serializable {
     
     private Long id;
     private String nom;
+    private String image;
     
     @ManyToOne
     @JoinColumn(name = "joueur_id")
@@ -40,22 +41,25 @@ public class Ingredient implements Serializable {
         switch (nombreAleatoire) {
             case 0:  
                 this.nom = "Corne de licorne";
+                this.image = ".jpg";
                 break;
             case 1:  
                 this.nom = "Bave de crapaud";
+                this.image = ".jpg";
                 break;
             case 2:  
                 this.nom = "Sang de vierge";
+                this.image = ".jpg";
                 break;
             case 3:  
                 this.nom = "Lapis-lazuli";
+                this.image = ".jpg";
                 break;
             case 4:  
                 this.nom = "Aile de chauve-souris";
+                this.image = ".jpg";
                 break;
-        }
-    
-      
+        } 
     }
 
     public String getNom() {

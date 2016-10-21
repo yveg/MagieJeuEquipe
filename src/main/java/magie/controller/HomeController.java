@@ -7,7 +7,9 @@ package magie.controller;
 
 import javax.servlet.http.HttpSession;
 import magie.entity.Joueur;
+import magie.entity.Partie;
 import magie.service.JoueurServiceCrud;
+import magie.service.PartieServiceCrud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,11 +26,18 @@ public class HomeController {
     
     @Autowired
     private JoueurServiceCrud serv;
+    @Autowired
+    private PartieServiceCrud crudPartie;
     
     @RequestMapping(value = "/", method = RequestMethod.GET) 
     public String maison (Model m) {
         m.addAttribute("titre", "Jeu de Magie entre Sorciers");
         m.addAttribute("joueur",new Joueur());
+        if(crudPartie.count() == 0){
+            Partie partie = new Partie();
+            partie.setNom("Parite magiemagie");
+            crudPartie.save(partie);
+        }
         return "home.jsp"; 
     }
     
