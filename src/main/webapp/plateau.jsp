@@ -40,11 +40,9 @@
             <div class="menujoueur">
         <p>Voici tes cartes:<br>
             
-            
-            <c:forEach var="displayjoueur" items="${joueurs}">
-                    <c:if test="${joueuractuel == displayjoueur.pseudo}">
-
+                    <c:if  test="${joueuractuel == displayjoueur.pseudo}">
                         <c:out value="${displayjoueur.pseudo}"></c:out>&nbsp;&nbsp;ici ok
+                    </c:if>
                     <div class="avatar"></div>
                     
               <c:forEach var="displayjoueur" items="${joueurs}">              
