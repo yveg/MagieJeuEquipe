@@ -16,11 +16,7 @@
             $('#parties').append("<input type='submit' value =' ${mesparties.nom}'>");
             $('#parties').append("</form:form></c:forEach>");
         }, 5000);
-
-//<a href="editer_film/${mesfilms.id}">Editer</a>
-    function envoyer(){
-        alert("ok");
-    }
+        
 </script>
 <!DOCTYPE html>
 
@@ -32,12 +28,13 @@
     <body>
         <div class="div1">Page d'attente partie</div>
         <br>
-        <p class="shadow">Vous &ecirc;tes: ${joueuractuel}</p> <span class="shadow">Noms des parties :</span><br><br><br>
+        <p class="shadow">Vous &ecirc;tes: ${joueuractuel}</p> <span class="shadow">Cliquez sur la partie que vous voulez rejoindre :</span><br><br><br>
         <div class="carre">
         <div id="parties">
             <c:forEach items="${parties}" var="mesparties">
                 <form:form  modelAttribute="mapartie">
-                    <form:input type='submit' path='id' value="${mesparties.id}"/>
+                    <label for="envoyer">${mesparties.nom}</label> 
+                    <form:input hidden="hidden" path="id" value="${mesparties.id}" type="submit" id="envoyer"></form:input>
                 </form:form>
             </c:forEach>
         </div>
