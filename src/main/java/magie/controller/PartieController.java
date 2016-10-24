@@ -32,7 +32,7 @@ public class PartieController {
     @Autowired IngredientDAO crudIngredient;
     
     @RequestMapping(value="/lister_parties", method = RequestMethod.GET)
-    public String listerGET(Model model){
+    public String listerGET(Model model, HttpSession cookie){
         if(crudPartie.count() == 0){
             Partie partie = new Partie();
             partie.setNom("Parite magiemagie");
@@ -43,6 +43,7 @@ public class PartieController {
         Partie maPartie = new Partie();
         model.addAttribute("parties",parties);
         model.addAttribute("mapartie",maPartie);
+        model.addAttribute("joueuractuel", crudJoueur.findOne((Long)cookie.getAttribute("nomjj")).getPseudo());
         return "attentePartie.jsp";
     }
     
@@ -72,6 +73,7 @@ public class PartieController {
     public String commencerGET( Model model, HttpSession cookie){
             //List<Joueur> joueurs = (List) crudJoueur.findAll();
             model.addAttribute("joueurs", crudJoueur.findAll());
+            model.addAttribute("ingredients", crudIngredient.findAll());
             model.addAttribute("joueuractuel", crudJoueur.findOne((Long)cookie.getAttribute("nomjj")).getPseudo());
             model.addAttribute("tour", 0);
     return "plateau.jsp";    

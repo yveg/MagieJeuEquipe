@@ -27,7 +27,10 @@ public class Ingredient implements Serializable {
 
     public enum TypeIngredient{
         BAVE_CRAPAUD,
-        CORNE_LICORNE
+        CORNE_LICORNE,
+        SANG_VIERGE,
+        LAPIS_LAZULI,
+        AILE_CHAUVE_SOURIS
     }
     
     private static final long serialVersionUID = 1L;

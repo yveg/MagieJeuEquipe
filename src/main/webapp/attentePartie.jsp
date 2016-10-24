@@ -6,6 +6,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link href="CSS/forme.css" rel="stylesheet" type="text/css"/>
 <script src="JS/jquery-3.1.1.js" type="text/javascript"></script>
 <script type="text/javascript">   
     
@@ -17,7 +18,9 @@
         }, 5000);
 
 //<a href="editer_film/${mesfilms.id}">Editer</a>
-
+    function envoyer(){
+        alert("ok");
+    }
 </script>
 <!DOCTYPE html>
 
@@ -27,16 +30,17 @@
         <title>Attente de parties</title>
     </head>
     <body>
-        <h1>
-            <u>Parties disponibles :</u>
-        </h1>
+        <div class="div1">Page d'attente partie</div>
+        <br>
+        <p class="shadow">Vous &ecirc;tes: ${joueuractuel}</p> <span class="shadow">Noms des parties :</span><br><br><br>
+        <div class="carre">
         <div id="parties">
             <c:forEach items="${parties}" var="mesparties">
-                <form:form modelAttribute="mapartie" >
-                    
-                    <form:input type="submit" path="id" value='${mesparties.id}'/>   
+                <form:form  modelAttribute="mapartie">
+                    <form:input type='submit' path='id' value="${mesparties.id}"/>
                 </form:form>
             </c:forEach>
         </div>
+            </div>
     </body>
 </html>
