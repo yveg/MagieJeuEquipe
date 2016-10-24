@@ -16,6 +16,7 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface IngredientDAO extends CrudRepository<Ingredient, Long>{
     public List<Ingredient> findOneByJoueurId(Long id);
+    public List<Ingredient> findAllByJoueurId(Long id);
 
     public List<Ingredient> findAllByJoueurIdAndTypeIngredient(long joueurlance, Ingredient.TypeIngredient typeIngredient);
         
