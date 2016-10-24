@@ -33,7 +33,6 @@
         <div id="parties">
             <c:forEach items="${parties}" var="mesparties">
                 <form:form modelAttribute="mapartie" >
-                    
                     <form:input type="submit" path="id" value='${mesparties.id}'/>   
                 </form:form>
             </c:forEach>
