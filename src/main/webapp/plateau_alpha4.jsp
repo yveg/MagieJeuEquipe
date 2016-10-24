@@ -47,10 +47,18 @@
                         <c:out value="${displayjoueur.pseudo}"></c:out>&nbsp;&nbsp;ici ok
                     <div class="avatar"></div>
                     
+                    <!-- ce code ne marche pas ci-dessous-->
+                        <c:forEach var="displayingredient" items="${displayjoueur.ingredients}"> d ${displayingredient} 5
+                            <input type="image"  src="Images/dos2carte/0001.png" onclick="setidcard" ></input> &nbsp;&nbsp;  
+                        </c:forEach>
+                    </c:if>
+            </c:forEach>
+              <!-- ce code ne marche pas ci-dessus-->    
+              
               <c:forEach var="displayjoueur" items="${joueurs}">              
               <c:choose>
     <c:when test="${joueuractuel.equalsIgnoreCase(displayjoueur.pseudo)}">
-        Both are equal, ajouer le nb de carte du joueur et les ingredients
+        Both are equal
       <input type="image"  src="Images/ingredient/aile.png" onclick="setidcard" ></input> &nbsp;&nbsp;  
 
     </c:when>

@@ -1,14 +1,16 @@
-/* 
-    Created on : 19 oct. 2016, 10:34:05
-    Author     : yves ngambali
-*/
-
+@font-face {
+    font-family: 'PokemonSolid';     src:url('font/PokemonSolid.ttf')  format('truetype');
+    font-family: 'yerbaluisa';     src:url('font/yerbaluisa.ttf')  format('truetype');
+    font-family: 'Sofia-Regular';     src:url('font/sofia/Sofia-Regular.otf');
+    font-family: 'funsized';  src:url('font/funsized.ttf')  format('truetype');
+    font-family: 'harry';  src:url('font/harry/harry.ttf')  format('truetype');
+}
 body {
     font-family: cursive;
     font-size: 1em;
     background-color: #330033;
     color: burlywood;
-      text-shadow:
+    text-shadow:
         3px 3px 0 #000,
         -1px -1px 0 #000,  
         1px -1px 0 #000,
@@ -16,6 +18,7 @@ body {
         1px 1px 0 #000;
 }
 h1 {
+    font-family: 'harry';
     display:block;
     padding-bottom: 0;
     margin-bottom: 0;
@@ -23,18 +26,29 @@ h1 {
     text-align: center;
     align-content: center;
     float: center;
-      text-shadow:
+    text-shadow:
         3px 3px 0 #000,
         -1px -1px 0 #000,  
         1px -1px 0 #000,
         -1px 1px 0 #000,
         1px 1px 0 #000;
 }
+.essai{
+    font-family: 'PokemonSolid';
+}
+a { 
+    color: #ffcccc;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+    color: #ff3333;
+}
 .lancerjeu input{
     text-align: center;
     float:right;
     margin-right: 400px; 
-    
+
 }
 
 .carre {
@@ -46,11 +60,29 @@ h1 {
     //opacity: 0.4;
     border-style: dashed;
     border-color: bisque aliceblue;
+    border-radius: 25px;
+    -webkit-border-image: 25px;
+    -moz-border-radius: 25px;
+    box-shadow: 5px 4px 5px #888888;
     //border-color: #ff0000 #0000ff;
+}
+.menujoueur{
+    margin-left: 100px;
+    padding-left: 25px;
+    width: 80%;
+    //background-color: green;
+    background-color: rgba(0, 128, 0,0.4);
+    //opacity: 0.4;
+    border-style: dashed;
+    border-color: bisque aliceblue;
+    border-radius: 25px;
+    -webkit-border-image: 25px;
+    -moz-border-radius: 25px;
+    box-shadow: 5px 4px 5px #888888;
 }
 .shadow {
     margin-left: 100px;
-     text-shadow:
+    text-shadow:
         3px 3px 0 #000,
         -1px -1px 0 #000,  
         1px -1px 0 #000,
@@ -59,7 +91,7 @@ h1 {
 }
 .div1{
     font-family: cursive;
-        color: burlywood;
+    color: burlywood;
     text-shadow:
         3px 3px 0 #000,
         -1px -1px 0 #000,  
@@ -73,60 +105,265 @@ h1 {
 }
 
 hr.style11 {
-	height: 6px;
-	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
+    height: 6px;
+    background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
     border: 0;
     background-color:#330033;
 }
 
 hr.style13 {
-	height: 10px;
-	border: 0;
-	box-shadow: 0 10px 10px -10px #8c8b8b inset;
-        
+    height: 10px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #8c8b8b inset;
+
 }
 
 hr.style18 { 
-  height: 30px; 
-  border-style: solid; 
-  border-color: chartreuse;
-  border-width: 1px 0 0 0; 
-  border-radius: 300px; 
+    height: 30px; 
+    border-style: solid; 
+    border-color: chartreuse;
+    border-width: 1px 0 0 0; 
+    border-radius: 300px; 
+    -webkit-border-image: 300px;
+    -moz-border-radius: 300px;
 } 
 hr.style18:before { 
-  display: block; 
-  content: ""; 
-  height: 30px; 
-  margin-top: -31px; 
-  border-style: solid; 
-  border-color: darkgreen;
-  border-width: 0 0 1px 0; 
-  border-radius: 30px; 
+    display: block; 
+    content: ""; 
+    height: 30px; 
+    margin-top: -31px; 
+    border-style: solid; 
+    border-color: darkgreen;
+    border-width: 0 0 1px 0; 
+    border-radius: 30px; 
+    -webkit-border-image: 30px;
+    -moz-border-radius: 30px;
 }
 
 .titre {
     font-size: 1.5em;
-    
+
 }
 p.boutton {
     color: #08233e;
     font:2.4em Futura,'Century Gothic',AppleGothic,sans-serif;
     font-size: 70%;
     padding: 14px;
-     background: url(overlay.png) reapeat-x center #ffc00;
-     background-color: rgba(255,204,0,1);
-     border:1px solid #ffc00;
-     -moz-border-radius: 10px;
-     -webkit-border-radius: 10px;
-     border-radius: 10px;
-     border-bottom: 1px solid #9f9f9f;
-     -moz-box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
-     -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
-     box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
-     cursor: pointer;
-     text-align: center;
+    background: url(overlay.png) reapeat-x center #ffc00;
+    background-color: rgba(255,204,0,1);
+    border:1px solid #ffc00;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border-bottom: 1px solid #9f9f9f;
+    -moz-box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+    cursor: pointer;
+    text-align: center;
 }
 
-boutton:hover {
+p.boutton:hover {
     background-color: rgba(255,204,0,0.8);
 }
+
+.jcarte input  {
+    width: 104px;
+    height: 160px;
+    opacity: 0.7;
+    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: auto;
+    z-index: 2;
+    position: relative;
+    box-shadow: 5px 4px 5px #00140d;
+}
+
+.jcarte input:hover {
+    width: 139px;
+    height: 214px;
+    border-style: dashed;
+    border-radius: 17px;
+    -webkit-border-image: 17px;
+    -moz-border-radius: 17px;
+    border-color: #ffcc00;
+    opacity: 1;
+    position: relative;
+    display: initial;
+    box-shadow: 5px 4px 5px #888888;
+
+}
+.avatar{
+    border-image: 0;
+    border-image-repeat: no-repeat;
+    width: 117px;
+    box-shadow: 5px 4px 5px #00140d;
+
+}
+.infoevent {
+    //text-align: center;
+    margin: auto;
+}
+.evenet {
+    padding-left: 10px;
+    margin: auto;
+    margin-left: auto;
+    text-align: center;
+    font-style: italic;
+}
+
+.menuactionj {
+    margin: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    text-align: center;
+    align-items: stretch;
+    -webkit-align-items: stretch;
+
+
+}
+.sortilege form {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-content: center;
+}
+.sortilege input{
+    display: ruby;
+    width: 83px;
+    height: 87px;
+    opacity: 0.6;
+    z-index: 2;
+}
+.inviz {
+    display: block;
+    width: 83px;
+    height: 128px;
+    opacity: 0.6;
+    z-index: 2;
+    position: relative;
+    box-shadow: 5px 4px 5px #00140d;
+}
+.sortilege input:onclick{
+    width: 139px;
+    height: 128px;
+    border-color: #ffcccc;
+    border-style: double;
+    border-radius: 12px;
+    -webkit-border-image: 12px;
+    -moz-border-radius: 12px;
+    opacity: 1;
+    z-index: 2;
+    position: absolute;
+    /*margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    */
+}
+.sortilege input:hover{
+    width: 139px;
+    height: 128px;
+    border-color: #ffcccc;
+    border-style: ridge;
+    border-radius: 12px;
+    opacity: 1;
+    z-index: 2;
+    position: absolute;
+    box-shadow: 5px 4px 5px #888888;
+    -webkit-transition: .5s all;   
+    -webkit-transition-delay: 5s; 
+    -moz-transition: .5s all;   
+    -moz-transition-delay: 5s; 
+    -ms-transition: .5s all;   
+    -ms-transition-delay: 5s; 
+    -o-transition: .5s all;   
+    -o-transition-delay: 5s; 
+    transition: .5s all;   
+    transition-delay: 5s; 
+    /*margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    */
+}
+
+.inviz:hover +.invi {
+    position: relative;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    color:palevioletred;
+    font-size: 0.9em;
+    bottom: 100px;
+    border-radius: 17px;
+    -webkit-border-image: 17px;
+    -moz-border-radius: 17px;
+    background-color: #00140d;
+    width: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    text-align: left;
+    -webkit-transition: .5s all;   
+    -webkit-transition-delay: 5s; 
+    -moz-transition: .5s all;   
+    -moz-transition-delay: 5s; 
+    -ms-transition: .5s all;   
+    -ms-transition-delay: 5s; 
+    -o-transition: .5s all;   
+    -o-transition-delay: 5s; 
+    transition: .5s all;   
+    transition-delay: 5s; 
+}
+.inviz:hover {
+    width: 139px;
+    height: 214px;
+    border: solid;
+    border-style: dashed;
+    border-radius: 17px;
+    -webkit-border-image: 17px;
+    -moz-border-radius: 17px;
+    border-color: #ffcc00;
+    opacity: 1;
+   
+}
+
+.invi {
+    display: none;
+    z-index: 5;
+    position: relative;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0px;
+}
+
+select {
+    font-family: inherit;
+    background-color: #2D2C4D;
+    padding: 4px 0;
+    font-size: 0.9em;
+    color: burlywood;
+    border: 2px solid pink;
+    border-radius: 10px;
+    -webkit-border-image: 10px;
+    -moz-border-radius: 10px;
+    box-shadow: 0 3px 0 #000, 0 -1px #8c8b8b inset;
+    -webkit-box-shadow: 0 3px 0 #000, 0 -1px #8c8b8b inset;
+    -moz-box-shadow:0 3px 0 #000, 0 -1px #8c8b8b inset;
+    //border-bottom: 1px solid red;
+    //width: 100%;
+    */
+}
+
+/* Remove focus */
+select:focus {
+    outline: none;
+}
+.listej {}

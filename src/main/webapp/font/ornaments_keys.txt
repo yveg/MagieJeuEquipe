@@ -1,0 +1,6 @@
+Usage keys for ornaments:    < >  ( )  [ ]  { }  | _
+Use discretionary ligatures (dlig) to write the default characters.
+----------
+Bitcoin symbol (ligatures): #b
+----------
+To use the lowercase letter z alternative use discretionary ligatures (dlig)
