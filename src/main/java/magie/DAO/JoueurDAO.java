@@ -21,4 +21,8 @@ public interface JoueurDAO extends CrudRepository<Joueur, Long> {
     public List<Joueur> findAllByPartieId(long idPartie);
 
     public Joueur findOneByPseudo(String string);
+public interface JoueurDAO extends CrudRepository<Joueur, Long>{
+     public List<Joueur> findAllByOrderByIdAsc();
+
+    public Joueur findOneById(long cartechoisir);
 }
