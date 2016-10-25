@@ -5,11 +5,8 @@
  */
 package magie.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
-import magie.entity.Ingredient;
-import magie.entity.Joueur;
 import magie.entity.Partie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import magie.DAO.IngredientDAO;
 import magie.DAO.JoueurDAO;
 import magie.DAO.PartieDAO;
+import magie.service.PartieService;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import org.springframework.ui.Model;
 
 /**
  *
@@ -27,62 +27,70 @@ import magie.DAO.PartieDAO;
  */
 @Controller
 public class PartieController {
-    @Autowired PartieDAO crudPartie;
-    @Autowired JoueurDAO crudJoueur;
-    @Autowired IngredientDAO crudIngredient;
+
+    @Autowired
+    private PartieService partieService;
     
-    @RequestMapping(value="/lister_parties", method = RequestMethod.GET)
-    public String listerGET(Model model, HttpSession cookie){
-        if(crudPartie.count() == 0){
-            Partie partie = new Partie();
-            partie.setNom("Parite magiemagie");
-            partie.setTourJoueur(0);
-            crudPartie.save(partie);
-        }
+    @Autowired
+    PartieDAO crudPartie;
+    
+    @Autowired
+    JoueurDAO crudJoueur;
+    
+    @Autowired
+    IngredientDAO crudIngredient;
+
+    @RequestMapping(value = "ajax_liste_joueurs_en_attente", method = RequestMethod.GET)
+    public String ajaxListeJoueursEnAttente(Model model, HttpSession session){
+        
+        long idPartie = (long) session.getAttribute("idPartie");
+        
+    model.addAttribute("joueurs", crudJoueur.findAllByPartieId(idPartie) );
+        
+        return "ajax_liste_joueurs_en_attente.jsp";
+    }
+    
+    @RequestMapping(value = "/lister_parties", method = RequestMethod.GET)
+    public String listerGET(Model model, HttpSession session) {
+
         List<Partie> parties = (List) crudPartie.findAll();
         Partie maPartie = new Partie();
-        model.addAttribute("parties",parties);
-        model.addAttribute("mapartie",maPartie);
-        model.addAttribute("joueuractuel", crudJoueur.findOne((Long)cookie.getAttribute("nomjj")).getPseudo());
+        model.addAttribute("parties", parties);
+        model.addAttribute("mapartie", maPartie);
+        model.addAttribute("joueuractuel", crudJoueur.findOne((Long) session.getAttribute("idJoueur")).getPseudo());
         return "attentePartie.jsp";
     }
-    
-    @RequestMapping(value="/lister_parties", method = RequestMethod.POST)
-    public String listerPOST(@ModelAttribute("id") Long idPartie,Model model){
-        crudIngredient.deleteAll();
-        if(crudIngredient.count() == 0)
-        {
-            List<Joueur> joueurs = (List) crudJoueur.findAll();
-            for(int indiceJoueur = 0; indiceJoueur < crudJoueur.count(); indiceJoueur++){
-                List<Ingredient> ingredients = new ArrayList<>();
-                for(int indiceIngredient = 0; indiceIngredient < 7; indiceIngredient++){
-                    Ingredient ingredient = new Ingredient();
-                    ingredients.add(ingredient);
-                    ingredient.setJoueur(joueurs.get(indiceJoueur));            
-                    crudIngredient.save(ingredient);
-                }
-               
-                joueurs.get(indiceJoueur).setPartie(crudPartie.findOne(idPartie));
-                crudJoueur.save(joueurs.get(indiceJoueur));
-            }   
-    }
+
+    @RequestMapping(value = "/rejoindre_partie", method = RequestMethod.POST)
+    public String retjoindrePartiePOST(@ModelAttribute("id") Long idPartie, Model model, HttpSession session) {
+       
+        // Place idPartie en session
+        session.setAttribute("idPartie", idPartie);
+        
+        // Associe joueur à la partie
+        long idJoueur = (long) session.getAttribute("idJoueur");
+        partieService.rejoindrePartie(idPartie, idJoueur);
+        
         return "redirect:/attentejoueur";
     }
-    
-    @RequestMapping(value="/lancerpartie", method = RequestMethod.GET)
-    public String commencerGET( Model model, HttpSession cookie){
-            //List<Joueur> joueurs = (List) crudJoueur.findAll();
-           /* List<Joueur> j;
-            j.get(id);
-*/
-            model.addAttribute("joueurs", crudJoueur.findAll());
-            model.addAttribute("ingredients", crudIngredient.findAll());
-            //model.addAttribute("un_ingredients_par_j", crudIngredient.findOneByJoueurId(Long.MIN_VALUE));
-            //model.addAttribute("tous_ingredients_par_j", crudIngredient.findAllByJoueurId(Long.MIN_VALUE));
-            model.addAttribute("joueuractuel", crudJoueur.findOne((Long)cookie.getAttribute("nomjj")).getPseudo());
-            model.addAttribute("tour", 0);
-    return "plateau.jsp";    
+
+    @RequestMapping(value = "/plateau", method = RequestMethod.GET)
+    public String plateau(Model model, HttpSession session) {
+        
+        // Renvoie vers vue
+        model.addAttribute("joueuractuel", crudJoueur.findOne((Long) session.getAttribute("idJoueur")).getPseudo());
+        
+        return "plateau.jsp";
     }
-       
- 
+    
+    @RequestMapping(value = "/lancerpartie", method = RequestMethod.GET)
+    public String lancerPartieGET(Model model, HttpSession session) {
+        
+        // Démarre partie
+        long partieId = (long) session.getAttribute("idPartie");
+        partieService.demarrerPartie( partieId );
+        
+        return "redirect:/plateau";
+    }
+
 }

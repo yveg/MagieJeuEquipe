@@ -13,5 +13,7 @@ import org.springframework.data.repository.CrudRepository;
  * @author admin
  */
 public interface PartieDAO extends CrudRepository<Partie, Long>{
+
+    public int countByEtatPartie(Partie.EtatPartie etatPartie);
     
 }

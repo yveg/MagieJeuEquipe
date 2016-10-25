@@ -9,9 +9,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -21,12 +25,32 @@ import javax.persistence.OneToMany;
 @Entity
 public class Partie implements Serializable {
 
+    public enum EtatPartie{
+        EN_ATTENTE,
+        DEMARREE,
+        TERMINEE
+    }
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nom;
-    private int tourJoueur;
+    
+    @Enumerated(EnumType.STRING)
+    private EtatPartie etatPartie;
+
+    public EtatPartie getEtatPartie() {
+        return etatPartie;
+    }
+
+    public void setEtatPartie(EtatPartie etatPartie) {
+        this.etatPartie = etatPartie;
+    }
+    
+    @ManyToOne
+    @JoinColumn(name="joueur_act_id")
+    private Joueur joueurQuiALaMain;
     
     @OneToMany(mappedBy = "partie")
     private Collection<Joueur> joueurs = new ArrayList<>();
@@ -34,14 +58,12 @@ public class Partie implements Serializable {
     public Partie() {
     }
 
-    
-    
-    public int getTourJoueur() {
-        return tourJoueur;
+    public Joueur getJoueurQuiALaMain() {
+        return joueurQuiALaMain;
     }
 
-    public void setTourJoueur(int tourJoueur) {
-        this.tourJoueur = tourJoueur;
+    public void setJoueurQuiALaMain(Joueur joueurQuiALaMain) {
+        this.joueurQuiALaMain = joueurQuiALaMain;
     }
 
     public Collection<Joueur> getJoueurs() {

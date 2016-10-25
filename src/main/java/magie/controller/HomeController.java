@@ -41,7 +41,7 @@ public class HomeController {
         j.setRevelation(false);
         j.setTour((int)serv.count()+1);
         serv.save(j);
-        session.setAttribute("nomjj", j.getId());
+        session.setAttribute("idJoueur", j.getId());
         return "redirect:/lister_parties"; 
     }
 }

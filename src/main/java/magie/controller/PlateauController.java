@@ -5,27 +5,42 @@
  */
 package magie.controller;
 
+import javax.servlet.http.HttpSession;
+import magie.DAO.JoueurDAO;
+import magie.entity.Joueur;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import magie.DAO.JoueurDAO;
+
 
 /**
  *
  * @author yves ngambali
  */
+@Controller
 public class PlateauController {
 
     @Autowired
-    private JoueurDAO serv;
+    private JoueurDAO dao;
 
+    @RequestMapping(value = "/ajax_zone_cartes_joueur_act", method = RequestMethod.GET)
+    public String ajaxZoneCartesJoueurAct(Model model, HttpSession session){
+        
+        Joueur joueurAct = dao.findOne( (long) session.getAttribute("idJoueur") );
+        model.addAttribute("ingredientsJoueurAct", joueurAct.getIngredients() );
+        
+        return "ajax_zone_cartes_joueur_act.jsp";
+    }
+    
     @RequestMapping(value = "/plateauroute", method = RequestMethod.POST)
     //public String cookitpPOST(String nomdujoueur, HttpSession couqui) {
     public String jeuencoursPOST() {
        // Joueur j = new Joueur();
         // j.setPseudo(nomdujoueur);
         // serv.save(j);
-        // couqui.setAttribute("nomjj", j.getPseudo());
+        // couqui.setAttribute("idJoueur", j.getPseudo());
         return "plateau.jsp";
     }
 

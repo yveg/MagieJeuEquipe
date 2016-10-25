@@ -5,6 +5,7 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link href="CSS/forme.css" rel="stylesheet" type="text/css"/>
 <script src="JS/jquery-3.1.1.js" type="text/javascript"></script>
@@ -32,7 +33,7 @@
         <div class="carre">
         <div id="parties">
             <c:forEach items="${parties}" var="mesparties">
-                <form:form  modelAttribute="mapartie">
+                <form:form  modelAttribute="mapartie" action="rejoindre_partie">
                     <label for="envoyer">${mesparties.nom}</label> 
                     <form:input hidden="hidden" path="id" value="${mesparties.id}" type="submit" id="envoyer"></form:input>
                 </form:form>
