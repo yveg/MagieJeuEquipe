@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'PokemonSolid';     src:url('font/PokemonSolid.ttf')  format('truetype');
+    font-family: 'yerbaluisa';     src:url('font/yerbaluisa.ttf')  format('truetype');
+    font-family: 'Sofia-Regular';     src:url('font/sofia/Sofia-Regular.otf');
+    font-family: 'funsized';  src:url('font/funsized.ttf')  format('truetype');
+    font-family: 'harry';  src:url('/font/harry/harry.ttf')  format('truetype');
+}
 body {
     font-family: cursive;
     font-size: 1em;
@@ -11,7 +18,7 @@ body {
         1px 1px 0 #000;
 }
 h1 {
-    font-family: fantasy;
+    font-family: 'harry';
     display:block;
     padding-bottom: 0;
     margin-bottom: 0;
@@ -27,7 +34,7 @@ h1 {
         1px 1px 0 #000;
 }
 .essai{
-    font-family: cursive;
+    font-family: 'PokemonSolid';
 }
 a { 
     color: #ffcccc;
@@ -48,19 +55,24 @@ a:hover{
     margin-left: 100px;
     padding-left: 25px;
     width: 80%;
+    //background-color: green;
     background-color: rgba(0, 128, 0,0.4);
+    //opacity: 0.4;
     border-style: dashed;
     border-color: bisque aliceblue;
     border-radius: 25px;
     -webkit-border-image: 25px;
     -moz-border-radius: 25px;
     box-shadow: 5px 4px 5px #888888;
+    //border-color: #ff0000 #0000ff;
 }
 .menujoueur{
     margin-left: 100px;
     padding-left: 25px;
     width: 80%;
+    //background-color: green;
     background-color: rgba(0, 128, 0,0.4);
+    //opacity: 0.4;
     border-style: dashed;
     border-color: bisque aliceblue;
     border-radius: 25px;
@@ -191,6 +203,7 @@ p.boutton:hover {
 
 }
 .infoevent {
+    //text-align: center;
     margin: auto;
 }
 .evenet {
@@ -344,6 +357,9 @@ select {
     box-shadow: 0 3px 0 #000, 0 -1px #8c8b8b inset;
     -webkit-box-shadow: 0 3px 0 #000, 0 -1px #8c8b8b inset;
     -moz-box-shadow:0 3px 0 #000, 0 -1px #8c8b8b inset;
+    //border-bottom: 1px solid red;
+    //width: 100%;
+    */
 }
 
 /* Remove focus */

@@ -34,26 +34,26 @@ public class PartieService {
     @Autowired
     IngredientDAO crudIngredient;
 
-    public void rejoindrePartie(long idPartie, long idJoueur){
-        
+    public void rejoindrePartie(long idPartie, long idJoueur) {
+
         Partie partie = crudPartie.findOne(idPartie);
         Joueur joueur = crudJoueur.findOne(idJoueur);
         joueur.setPartie(partie);
         partie.getJoueurs().add(joueur);
-        
+
         crudPartie.save(partie);
         crudJoueur.save(joueur);
     }
-    
+
     public void demarrerPartie(long partieId) {
 
         // Récup partie
         Partie partie = crudPartie.findOne(partieId);
-
+        partie.setEtatPartie(Partie.EtatPartie.DEMARREE);
         // Crée 7 cartes aléat par joueur et initialise tour des joueurs
         int tourJoueur = 1;
         for (Joueur joueur : partie.getJoueurs()) {
-            
+
             // Crée 7 cartes ingredient
             for (int indiceJoueur = 0; indiceJoueur < crudJoueur.count(); indiceJoueur++) {
                 for (int indiceIngredient = 0; indiceIngredient < 7; indiceIngredient++) {
@@ -63,11 +63,11 @@ public class PartieService {
                     crudIngredient.save(ingredient);
                 }
             }
-            
+
             // Initialise tour joueur
-            joueur.setTour( tourJoueur );
+            joueur.setTour(tourJoueur);
             tourJoueur++;
-            
+
             crudJoueur.save(joueur);
         }
     }
