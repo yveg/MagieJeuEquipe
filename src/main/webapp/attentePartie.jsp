@@ -7,21 +7,20 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<link href="CSS/forme.css" rel="stylesheet" type="text/css"/>
-<script src="JS/jquery-3.1.1.js" type="text/javascript"></script>
-<script type="text/javascript">   
-    
-    setInterval(function(){ 
-            $('#listeParties').load("ajax_liste_parties_en_attente");
-    }, 1000);
 
-</script>
 <!DOCTYPE html>
 
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Attente de parties</title>
+        <link href="CSS/forme.css" rel="stylesheet" type="text/css"/>
+        <script src="JS/jquery-3.1.1.js" type="text/javascript"></script>
+        <script type="text/javascript">   
+            setInterval(function(){ 
+                $('#listeParties').load("ajax_liste_parties_en_attente");
+            }, 1000);
+        </script>
     </head>
     <body>
         <div class="div1">Page d'attente partie</div>
