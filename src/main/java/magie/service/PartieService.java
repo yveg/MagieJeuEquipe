@@ -47,9 +47,10 @@ public class PartieService {
 
     public void demarrerPartie(long partieId) {
 
-        // Récup partie
+        // Récup partie et mise en DEMARREE
         Partie partie = crudPartie.findOne(partieId);
         partie.setEtatPartie(Partie.EtatPartie.DEMARREE);
+        crudPartie.save(partie);
         // Crée 7 cartes aléat par joueur et initialise tour des joueurs
         int tourJoueur = 1;
         for (Joueur joueur : partie.getJoueurs()) {
