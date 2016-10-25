@@ -16,7 +16,7 @@
         <script src="JS/jquery-3.1.1.js" type="text/javascript"></script>
         <link href="CSS/homepage.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body>
+    <body style="background-image: url(Images/fondhome.jpg)">
         <br>
         <br>
         <h1>MagieMagie</h1> 
@@ -29,7 +29,7 @@
         <br>
         <form:form modelAttribute="joueur">
             <form:input  path="pseudo"  /> 
-             <input type="submit" style="font-face: 'Comic Sans MS'; font-size: larger; color: red; background-color:#ffc00" value="Créer Joueur" />
+             <input type="submit" style="font-face: 'Comic Sans MS'; font-size: larger; color: red; background-color:#ffc00" value="Créer joueur" />
         </form:form>
         <br>
     </body>
