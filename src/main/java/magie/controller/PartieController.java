@@ -50,13 +50,24 @@ public class PartieController {
         return "ajax_liste_joueurs_en_attente.jsp";
     }
     
-    @RequestMapping(value = "/lister_parties", method = RequestMethod.GET)
-    public String listerGET(Model model, HttpSession session) {
-
+    @RequestMapping(value = "ajax_liste_parties_en_attente", method = RequestMethod.GET)
+    public String ajaxListePariesEnAttente(Model model, HttpSession session){
+        
         List<Partie> parties = (List) crudPartie.findAllByEtatPartie(Partie.EtatPartie.EN_ATTENTE);
         Partie maPartie = new Partie();
         model.addAttribute("parties", parties);
         model.addAttribute("mapartie", maPartie);
+        
+        return "ajax_liste_parties_en_attente.jsp";
+    }
+    
+    @RequestMapping(value = "/lister_parties", method = RequestMethod.GET)
+    public String listerGET(Model model, HttpSession session) {
+
+//        List<Partie> parties = (List) crudPartie.findAllByEtatPartie(Partie.EtatPartie.EN_ATTENTE);
+//        Partie maPartie = new Partie();
+//        model.addAttribute("parties", parties);
+//        model.addAttribute("mapartie", maPartie);
         model.addAttribute("joueuractuel", crudJoueur.findOne((Long) session.getAttribute("idJoueur")).getPseudo());
         return "attentePartie.jsp";
     }
