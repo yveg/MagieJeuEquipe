@@ -90,22 +90,27 @@ public class Ingredient implements Serializable {
         int nombreAleatoire = (int)Math.floor(Math.random()*5);
         switch (nombreAleatoire) {
             case 0:  
+                this.setTypeIngredient(TypeIngredient.CORNE_LICORNE);
                 this.nom = "Corne de licorne";
                 this.image = "Images/ingredient/unicorn.jpg";
                 break;
             case 1:  
+                this.setTypeIngredient(TypeIngredient.BAVE_CRAPAUD);
                 this.nom = "Bave de crapaud";
                 this.image = "Images/ingredient/crapaud.jpg";
                 break;
             case 2:  
+                this.setTypeIngredient(typeIngredient.SANG_VIERGE);
                 this.nom = "Sang de vierge";
                 this.image = "Images/ingredient/sand2vierge.jpg";
                 break;
             case 3:  
+                this.setTypeIngredient(typeIngredient.LAPIS_LAZULI);
                 this.nom = "Lapis-lazuli";
                 this.image = "Images/ingredient/lapiz.jpg";
                 break;
             case 4:  
+                this.setTypeIngredient(typeIngredient.AILE_CHAUVE_SOURIS);
                 this.nom = "Aile de chauve-souris";
                 this.image = "Images/ingredient/aile.png";
                 break;
