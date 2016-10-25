@@ -91,23 +91,23 @@ public class Ingredient implements Serializable {
         switch (nombreAleatoire) {
             case 0:  
                 this.nom = "Corne de licorne";
-                this.image = ".jpg";
+                this.image = "Images/ingredient/unicorn.jpg";
                 break;
             case 1:  
                 this.nom = "Bave de crapaud";
-                this.image = ".jpg";
+                this.image = "Images/ingredient/crapaud.jpg";
                 break;
             case 2:  
                 this.nom = "Sang de vierge";
-                this.image = ".jpg";
+                this.image = "Images/ingredient/sand2vierge.jpg";
                 break;
             case 3:  
                 this.nom = "Lapis-lazuli";
-                this.image = ".jpg";
+                this.image = "Images/ingredient/lapiz.jpg";
                 break;
             case 4:  
                 this.nom = "Aile de chauve-souris";
-                this.image = ".jpg";
+                this.image = "Images/ingredient/aile.png";
                 break;
         } 
     }

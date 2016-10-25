@@ -72,8 +72,13 @@ public class PartieController {
     @RequestMapping(value="/lancerpartie", method = RequestMethod.GET)
     public String commencerGET( Model model, HttpSession cookie){
             //List<Joueur> joueurs = (List) crudJoueur.findAll();
+           /* List<Joueur> j;
+            j.get(id);
+*/
             model.addAttribute("joueurs", crudJoueur.findAll());
             model.addAttribute("ingredients", crudIngredient.findAll());
+            //model.addAttribute("un_ingredients_par_j", crudIngredient.findOneByJoueurId(Long.MIN_VALUE));
+            //model.addAttribute("tous_ingredients_par_j", crudIngredient.findAllByJoueurId(Long.MIN_VALUE));
             model.addAttribute("joueuractuel", crudJoueur.findOne((Long)cookie.getAttribute("nomjj")).getPseudo());
             model.addAttribute("tour", 0);
     return "plateau.jsp";    

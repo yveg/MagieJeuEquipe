@@ -39,17 +39,12 @@
             
             <div class="menujoueur">
         <p>Voici tes cartes:<br>
-            <c:set var="tousjoueur" value="${joueurs}.pseudo" />
-            <c:set var="idin" value="${ingredients}.id" />
-            <p>ok pour id_ingred ${ingredients}.id</p>
-            <p>ok pour joueur_ingr ${ingredients}.Joueur_id</p>
-            
-                    <c:if  test="${joueuractuel == tousjoueur}">
-                        
-                        <c:out value="${idin}">ici ok</c:out>&nbsp;&nbsp;ici ok
-                    </c:if>s
+            <c:set var="tousjoueur" value="${joueurs}" />
+                    <c:if  test="${joueuractuel == tousjoueur.pseudo}">
+                        <c:out value="${tousjoueur.pseudo}"></c:out>&nbsp;&nbsp;ici ok
+                    </c:if>
                     <div class="avatar"></div>
-        
+                    
                             
               <c:choose>
     <c:when test="${joueuractuel.equalsIgnoreCase(displayjoueur.pseudo)}">
