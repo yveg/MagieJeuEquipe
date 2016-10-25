@@ -12,7 +12,7 @@
     
 <c:forEach items="${parties}" var="mesparties">
     <form:form  modelAttribute="mapartie" action="rejoindre_partie">
-        <label for="envoyer">${mesparties.nom}</label> 
+        <label for="envoyer" style="cursor:pointer">${mesparties.nom}</label> 
         <form:input hidden="hidden" path="id" value="${mesparties.id}" type="submit" id="envoyer"></form:input>
     </form:form>
 </c:forEach>

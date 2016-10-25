@@ -28,7 +28,7 @@
         <p class="shadow">Vous &ecirc;tes: ${joueuractuel}</p> <span class="shadow">Cliquez sur la partie que vous voulez rejoindre :</span><br><br><br>
         <div class="carre">
         <div id="listeParties">
-            *** AJAX ***
+            ...
         </div>
             </div>
     </body>
