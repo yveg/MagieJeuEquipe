@@ -16,4 +16,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface JoueurDAO extends CrudRepository<Joueur, Long>{
      public List<Joueur> findAllByOrderByIdAsc();
+
+    public Joueur findOneById(long cartechoisir);
 }

@@ -18,6 +18,10 @@ public interface IngredientDAO extends CrudRepository<Ingredient, Long>{
     public List<Ingredient> findOneByJoueurId(Long id);
 
     public List<Ingredient> findAllByJoueurIdAndTypeIngredient(long joueurlance, Ingredient.TypeIngredient typeIngredient);
+
+    public List<Ingredient> findAllByJoueurId(long joueurvectime);
+
+    public List<Ingredient> findAllByJoueurIdAndTypeIngredient(Joueur joueurlance, Ingredient.TypeIngredient typeIngredient);
         
     
             

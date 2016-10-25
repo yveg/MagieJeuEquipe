@@ -30,7 +30,27 @@ public class Ingredient implements Serializable {
         CORNE_LICORNE,
         SANG_VIERGE,
         LAPIS_LAZULI,
-        AILE_CHAUVE_SOURIS
+        AILE_CHAUVE_SOURIS;
+
+        public static TypeIngredient getBAVE_CRAPAUD() {
+            return BAVE_CRAPAUD;
+        }
+
+        public static TypeIngredient getCORNE_LICORNE() {
+            return CORNE_LICORNE;
+        }
+
+        public static TypeIngredient getSANG_VIERGE() {
+            return SANG_VIERGE;
+        }
+
+        public static TypeIngredient getLAPIS_LAZULI() {
+            return LAPIS_LAZULI;
+        }
+
+        public static TypeIngredient getAILE_CHAUVE_SOURIS() {
+            return AILE_CHAUVE_SOURIS;
+        }
     }
     
     private static final long serialVersionUID = 1L;

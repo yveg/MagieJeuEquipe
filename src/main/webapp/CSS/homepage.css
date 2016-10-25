@@ -1,0 +1,39 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24 oct. 2016, 12:25:45
+    Author     : admin
+*/
+
+h1{color: gold;
+   text-align: center;
+  background-color:transparent;  
+   font-family: cursive;
+    font-size: 80px;
+    
+}
+
+body{
+    
+   background-image: url("http://previews.123rf.com/images/tupungato/tupungato0704/tupungato070400003/891232-Abstract-fractal-background-Graphiques-g-n-r-es-par-ordinateur-Dangereuses-lectricit-foudre-magie--Banque-d'images.jpg");
+   background-repeat: no-repeat;     
+   
+ 
+    
+}
+
+button{
+    
+ text-align: center;   
+}
+form{
+    text-align: center;
+    color: blueviolet;
+   
+}
+.button {
+    color: green;
+}
