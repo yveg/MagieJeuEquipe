@@ -9,6 +9,10 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!-- scan la table joueurs et append le nom+br>-->
+
+
+
 <c:forEach var="displayjoueur" items="${joueurs}">
     ${displayjoueur.pseudo} <br>
 </c:forEach>
+

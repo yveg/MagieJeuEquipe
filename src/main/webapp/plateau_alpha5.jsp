@@ -17,6 +17,7 @@
         <script type="text/javascript">
             alert('ciyciy');
             $(document).ready( function(){
+                
                 alert('coucou');
                 setInterval( chargeZoneCartesJoueurAct, 1000 );
             }) );

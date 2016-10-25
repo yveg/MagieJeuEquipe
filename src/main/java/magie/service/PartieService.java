@@ -72,6 +72,14 @@ public class PartieService {
             crudJoueur.save(joueur);
         }
     }
+    
+    public boolean testPartieDemarree(long idPartie) {
+        if(crudPartie.findOne(idPartie).getEtatPartie()==Partie.EtatPartie.DEMARREE){
+            return true;
+        }
+            else {return false;}
+        }
+        
 
     @Scheduled(fixedDelay = 1000)
     public void creeNouvPartieSiExistePas() {

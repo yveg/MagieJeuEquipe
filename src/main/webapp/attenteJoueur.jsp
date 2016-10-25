@@ -15,12 +15,22 @@
         <link href="CSS/forme.css" rel="stylesheet" type="text/css"/>
         <script src="JS/jquery-3.1.1.js" type="text/javascript"></script>
         <script type="text/javascript">
-            
-            setInterval(function () {
-                
-                $('#listeJoueurs').load("ajax_liste_joueurs_en_attente");
-                
-            }, 1000);
+
+            $(document).ready(function () {
+
+                setInterval(function () {
+
+                    $.getJSON("ajax_partie_demarree", function (dto) {
+                        if (dto.demarree == true) {
+                            location.href = "plateau";
+                        }else{
+                            $('#listeJoueurs').load("ajax_liste_joueurs_en_attente");
+                        }
+                    });
+
+                    
+                }, 1000);
+            });
         </script>
     </head>
     <body>
