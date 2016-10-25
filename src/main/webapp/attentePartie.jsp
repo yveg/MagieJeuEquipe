@@ -12,12 +12,9 @@
 <script type="text/javascript">   
     
     setInterval(function(){ 
-            $('#parties').text("<c:forEach items='${parties}' var='mesparties'>");
-            $('#parties').append("<form:form modelAttribute='mesparties' >");
-            $('#parties').append("<input type='submit' value =' ${mesparties.nom}'>");
-            $('#parties').append("</form:form></c:forEach>");
-        }, 5000);
-        
+            $('#listeParties').load("ajax_liste_parties_en_attente");
+    }, 10000);
+
 </script>
 <!DOCTYPE html>
 
