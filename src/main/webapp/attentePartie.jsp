@@ -13,7 +13,7 @@
     
     setInterval(function(){ 
             $('#listeParties').load("ajax_liste_parties_en_attente");
-    }, 10000);
+    }, 1000);
 
 </script>
 <!DOCTYPE html>
@@ -29,12 +29,7 @@
         <p class="shadow">Vous &ecirc;tes: ${joueuractuel}</p> <span class="shadow">Cliquez sur la partie que vous voulez rejoindre :</span><br><br><br>
         <div class="carre">
         <div id="parties">
-            <c:forEach items="${parties}" var="mesparties">
-                <form:form  modelAttribute="mapartie" action="rejoindre_partie">
-                    <label for="envoyer">${mesparties.nom}</label> 
-                    <form:input hidden="hidden" path="id" value="${mesparties.id}" type="submit" id="envoyer"></form:input>
-                </form:form>
-            </c:forEach>
+            *** AJAX ***
         </div>
             </div>
     </body>
