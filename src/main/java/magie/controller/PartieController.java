@@ -53,7 +53,7 @@ public class PartieController {
     @RequestMapping(value = "/lister_parties", method = RequestMethod.GET)
     public String listerGET(Model model, HttpSession session) {
 
-        List<Partie> parties = (List) crudPartie.findAll();
+        List<Partie> parties = (List) crudPartie.findAllByEtatPartie(Partie.EtatPartie.EN_ATTENTE);
         Partie maPartie = new Partie();
         model.addAttribute("parties", parties);
         model.addAttribute("mapartie", maPartie);

@@ -5,6 +5,7 @@
  */
 package magie.DAO;
 
+import java.util.List;
 import magie.entity.Partie;
 import org.springframework.data.repository.CrudRepository;
 
@@ -15,5 +16,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface PartieDAO extends CrudRepository<Partie, Long>{
 
     public int countByEtatPartie(Partie.EtatPartie etatPartie);
+    public  List<Partie> findAllByEtatPartie(Partie.EtatPartie etatPartie);
     
 }
