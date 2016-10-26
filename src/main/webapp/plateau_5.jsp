@@ -13,18 +13,16 @@
         <title>JSP Page</title>
         <link href="CSS/forme.css" rel="stylesheet" type="text/css"/>
         <script src="JS/jquery-3.1.1.js" type="text/javascript"></script>
-        <script src="JS/magie.js" type="text/javascript"></script>
+        <!--<script src="JS/magie.js" type="text/javascript"></script>-->
         <script type="text/javascript">
-             
-             $(document).ready(function () {
-
-                setInterval(function () {
-                    chargeZoneCartesJoueurAct();
-                     }, 1000);
-            });
+            alert('ciyciy');
+            $(document).ready( function(){
+                alert('coucou');
+                setInterval( chargeZoneCartesJoueurAct, 1000 );
+            }) );
         </script>
     </head>
-    <body >
+    <body>
         <h1>Plateau du jeu Magie en cours</h1>
         <section>
             <div class="infoevent">

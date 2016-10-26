@@ -41,7 +41,7 @@ public class PartieController {
 
     @Autowired
     IngredientDAO crudIngredient;
-
+    
     @RequestMapping(value = "ajax_partie_demarree", method = RequestMethod.GET)
     @ResponseBody
     public PartieDemarreeDTO ajaxPartieDemarree(HttpSession session){
