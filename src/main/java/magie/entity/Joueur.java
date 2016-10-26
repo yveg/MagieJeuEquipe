@@ -34,6 +34,8 @@ public class Joueur implements Serializable {
     private boolean revelation;
 
     private String avatar;
+    
+    private int sommeilProfond;
 
     @ManyToOne
     @JoinColumn(name = "partie_id")
@@ -44,6 +46,14 @@ public class Joueur implements Serializable {
     
     private String pseudo;
 
+    public int getSommeilProfond() {
+        return sommeilProfond;
+    }
+
+    public void setSommeilProfond(int sommeilProfond) {
+        this.sommeilProfond = sommeilProfond;
+    }
+    
     public Long getId() {
         return id;
     }

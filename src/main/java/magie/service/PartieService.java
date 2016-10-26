@@ -34,6 +34,29 @@ public class PartieService {
     @Autowired
     IngredientDAO crudIngredient;
 
+    
+    public void definirTourSuivant(long idPartie){
+        // récupere la partie en cours
+        Partie partie = crudPartie.findOne(idPartie);
+        // recupere le tour en cours et passe au suivant
+        int tour = partie.getJoueurQuiALaMain().getTour() + 1;
+        if(tour > partie.getJoueurs().size()) tour = 1;
+        //recuere joueur de ce nouveau tour
+        Joueur joueur = crudJoueur.fineOneByTour(tour);
+        // test si le joueur n'est pas sous le sort de sommeil profond
+        while(joueur.getSommeilProfond() != 0){
+            // si oui, déduit les tours à passer et passe au joueur suivant
+            joueur.setSommeilProfond(joueur.getSommeilProfond()-1);
+            crudJoueur.save(joueur);
+            tour++;
+            if(tour > partie.getJoueurs().size()) tour = 1;
+            joueur = crudJoueur.fineOneByTour(tour);    
+        };
+        // actualise dans la partie en cours le joueur qui a la main
+        partie.setJoueurQuiALaMain(joueur);
+        crudPartie.save(partie);
+    }
+    
     public void rejoindrePartie(long idPartie, long idJoueur) {
 
         Partie partie = crudPartie.findOne(idPartie);
@@ -66,6 +89,7 @@ public class PartieService {
             }
 
             // Initialise tour joueur
+            joueur.setSommeilProfond(0);
             joueur.setTour(tourJoueur);
             tourJoueur++;
 
