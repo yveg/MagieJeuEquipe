@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpSession;
+import magie.DAO.JoueurDAO;
 import magie.entity.Joueur;
 import magie.service.PartieService;
 
@@ -21,6 +22,10 @@ import magie.service.PartieService;
  */
 @Controller
 public class SortController {
+    
+     private JoueurDAO dao;
+     @Autowired
+    private PartieService partieService;
 
     @Autowired
     private SortService sortService;
@@ -40,5 +45,7 @@ public class SortController {
         //faire l envoi de status a tous les jours
         return "testSort.jsp";
     }
+    
+  
 
 }
