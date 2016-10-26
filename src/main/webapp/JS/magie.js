@@ -14,11 +14,11 @@ var ingredientimg = ["Images/ingredient/batfinal.jpg", "Images/ingredient/crapau
 var sortimg = [];
 
 function chargeZoneCartesJoueurAct(){
-    
+   
     $('.jcarte').load("ajax_zone_cartes_joueur_act");
 }
 
-function principal() {
+function avatar() {
 
 
     //   affichage avatar de moi
@@ -29,7 +29,7 @@ function principal() {
     for (i = 0; i < n; i++) {
         $('.champ').append("<img src=" + imgtete[i] + " /><br>");
     }
-
-    // Charger ponctuellement les cartes du joueur act et autre joueurs
-    setInterval( chargeZoneCartesJoueurAct(), 1000 );
 }
+ avatar();
+    // Charger ponctuellement les cartes du joueur act et autre joueurs
+    //setInterval( chargeZoneCartesJoueurAct(), 1000 );

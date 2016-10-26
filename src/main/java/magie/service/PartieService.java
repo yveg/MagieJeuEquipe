@@ -78,15 +78,15 @@ public class PartieService {
         int tourJoueur = 1;
         for (Joueur joueur : partie.getJoueurs()) {
 
-            // Crée 7 cartes ingredient
-            for (int indiceJoueur = 0; indiceJoueur < crudJoueur.count(); indiceJoueur++) {
+          // Crée 7 cartes ingredient
+           // for (int indiceJoueur = 0; indiceJoueur < crudJoueur.count(); indiceJoueur++) {
                 for (int indiceIngredient = 0; indiceIngredient < 7; indiceIngredient++) {
                     Ingredient ingredient = new Ingredient();
                     joueur.getIngredients().add(ingredient);
                     ingredient.setJoueur(joueur);
                     crudIngredient.save(ingredient);
                 }
-            }
+           // }
 
             // Initialise tour joueur
             joueur.setSommeilProfond(0);

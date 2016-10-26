@@ -11,5 +11,5 @@
 
 <p>alors ingredients ?</p>
 <c:forEach items="${ingredientsJoueurAct}" var="ingredient">
-    <img src="${ingredient.image}"/>
+    <img class="overmescartes" src="${ingredient.image}"/>
 </c:forEach>

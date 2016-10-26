@@ -15,9 +15,9 @@
         <script src="JS/jquery-3.1.1.js" type="text/javascript"></script>
         <script src="JS/magie.js" type="text/javascript"></script>
         <script type="text/javascript">
-             
+              
              $(document).ready(function () {
-
+             avatar();
                 setInterval(function () {
                     chargeZoneCartesJoueurAct();
                      }, 1000);
@@ -27,9 +27,10 @@
     <body >
         <h1>Plateau du jeu Magie en cours</h1>
         <section>
-            <div class="infoevent">
-                <p class="shadow">Vous &ecirc;tes: ${joueuractuel}</p>
+            <div class="infoj">
+                <p class="shadow">Vous &ecirc;tes: ${joueuractuel}<div class="avatar">ici photo</div></p>
                 <p class="shadow">le tour est &agrave;: ${tour}</p>
+                
             </div>
 
             <div class="evenet">
@@ -37,11 +38,6 @@
             </div>
 
             <div class="menujoueur">
-                
-
-                <div class="avatar"></div>
-
-
 
                 <div align="center">
                     <p class="jcarte">

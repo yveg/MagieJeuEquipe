@@ -48,7 +48,7 @@ a:hover{
 
 }
 
-.carre {
+.carre, .menujoueur, .infoj {
     margin-left: 100px;
     padding-left: 25px;
     width: 80%;
@@ -60,6 +60,7 @@ a:hover{
     -moz-border-radius: 25px;
     box-shadow: 5px 4px 5px #888888;
 }
+/*
 .menujoueur{
     margin-left: 100px;
     padding-left: 25px;
@@ -72,8 +73,9 @@ a:hover{
     -moz-border-radius: 25px;
     box-shadow: 5px 4px 5px #888888;
 }
+*/
 .shadow {
-    margin-left: 100px;
+    //margin-left: 100px;
     text-shadow:
         3px 3px 0 #000,
         -1px -1px 0 #000,  
@@ -159,10 +161,12 @@ p.boutton:hover {
     background-color: rgba(255,204,0,0.8);
 }
 
-.jcarte input  {
+
+.jcarte img   {
     width: 104px;
     height: 160px;
     opacity: 0.7;
+    -moz
     margin: auto;
     margin-left: auto;
     margin-right: auto;
@@ -171,9 +175,11 @@ p.boutton:hover {
     z-index: 2;
     position: relative;
     box-shadow: 5px 4px 5px #00140d;
+    -webkit-box-shadow: 5px 4px 5px #00140d;
+    
 }
 
-.jcarte input:hover {
+.jcarte img:hover  {
     width: 139px;
     height: 214px;
     border-style: dashed;
@@ -185,6 +191,7 @@ p.boutton:hover {
     position: relative;
     display: initial;
     box-shadow: 5px 4px 5px #888888;
+    -webkit-box-shadow: 5px 4px 5px #00140d;
 
 }
 .avatar{
@@ -195,6 +202,9 @@ p.boutton:hover {
 
 }
 .infoevent {
+    margin: auto;
+}
+.infoj {
     margin: auto;
 }
 .evenet {

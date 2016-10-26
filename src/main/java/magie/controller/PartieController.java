@@ -113,10 +113,11 @@ public class PartieController {
 
     @RequestMapping(value = "/plateau", method = RequestMethod.GET)
     public String plateau(Model model, HttpSession session) {
+        long idPartie = (long) session.getAttribute("idPartie");
 
         // Renvoie vers vue
         model.addAttribute("joueuractuel", crudJoueur.findOne((Long) session.getAttribute("idJoueur")).getPseudo());
-
+        model.addAttribute("joueurs", crudJoueur.findAllByPartieId(idPartie));          
         return "plateau.jsp";
     }
 
