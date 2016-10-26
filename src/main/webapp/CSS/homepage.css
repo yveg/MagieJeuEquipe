@@ -10,29 +10,53 @@ and open the template in the editor.
 
 h1{color: gold;
    text-align: center;
-  background-color:transparent;  
+   background-color:transparent;  
    font-family: cursive;
-    font-size: 80px;
-    
+   font-size: 80px;
+
 }
 
 body{
-    
 
-   background-repeat: no-repeat;     
-   
- 
-    
+    background-image: url('http://localhost:8084/magiemagie/Images/fondhome.jgg');
+     min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+    background-size: 1500px  938px ;  
+    background-attachment: scroll;
+    back
+    font-family: fantasy;
+    font-size: 1em;
+    color: burlywood;
+    text-shadow:
+        3px 3px 0 #000,
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+     background-color: #330033;
+     background-attachment: scroll;
+    background-repeat: no-repeat ; 
+back
 }
 
 button{
-    
- text-align: center;   
+
+    text-align: center;   
 }
 form{
     text-align: center;
     color: blueviolet;
-   
+
 }
 .button {
     color: green;
