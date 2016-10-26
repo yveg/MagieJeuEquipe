@@ -33,16 +33,22 @@ public class HomeController {
     public String maison (Model m) {
         m.addAttribute("titre", "Jeu de Magie entre Sorciers");
         m.addAttribute("joueur",new Joueur());
+        
         return "home.jsp"; 
     }
     
     @RequestMapping(value = "/", method = RequestMethod.POST) 
     public String maison (@ModelAttribute("joueur") Joueur j,HttpSession session) {
-        j.setRevelation(false);
-        j.setTour((int)serv.count()+1);
-        serv.save(j);
-        session.setAttribute("idJoueur", j.getId());
-        return "redirect:/lister_parties"; 
+        if(serv.findOneByPseudo(j.getPseudo()) == null){
+            j.setRevelation(false);
+            serv.save(j);
+            session.setAttribute("idJoueur", j.getId());
+            return "redirect:/lister_parties";
+        }
+        else {
+            //alert("Pseudo déjà existant!");
+            return "redirect:/";
+        }
     }
 }
 

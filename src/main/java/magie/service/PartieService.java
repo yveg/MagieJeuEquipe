@@ -42,7 +42,7 @@ public class PartieService {
         int tour = partie.getJoueurQuiALaMain().getTour() + 1;
         if(tour > partie.getJoueurs().size()) tour = 1;
         //recuere joueur de ce nouveau tour
-        Joueur joueur = crudJoueur.fineOneByTour(tour);
+        Joueur joueur = crudJoueur.findOneByTour(tour);
         // test si le joueur n'est pas sous le sort de sommeil profond
         while(joueur.getSommeilProfond() != 0){
             // si oui, déduit les tours à passer et passe au joueur suivant
@@ -50,7 +50,7 @@ public class PartieService {
             crudJoueur.save(joueur);
             tour++;
             if(tour > partie.getJoueurs().size()) tour = 1;
-            joueur = crudJoueur.fineOneByTour(tour);    
+            joueur = crudJoueur.findOneByTour(tour);    
         };
         // actualise dans la partie en cours le joueur qui a la main
         partie.setJoueurQuiALaMain(joueur);
