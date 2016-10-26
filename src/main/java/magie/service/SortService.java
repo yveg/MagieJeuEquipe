@@ -13,11 +13,13 @@ import magie.DAO.JoueurDAO;
 import magie.entity.Ingredient;
 import magie.entity.Joueur;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author admin
  */
+@Service
 public class SortService {
 
     @Autowired
@@ -186,5 +188,6 @@ public class SortService {
 
         // Recupere  joueur vectime
         Joueur vect = crudJoueur.findOne(joueurvectime);
+        vect.setSommeilProfond(vect.getSommeilProfond()+2);
     }
 }
