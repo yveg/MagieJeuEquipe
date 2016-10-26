@@ -362,3 +362,7 @@ select:focus {
     outline: none;
 }
 .listej {}
+td {
+    column-width: 300px
+}
+
