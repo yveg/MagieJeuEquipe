@@ -14,12 +14,22 @@ var ingredientimg = ["Images/ingredient/batfinal.jpg", "Images/ingredient/crapau
 var sortimg = [];
 
 function chargeZoneCartesJoueurAct(){
-   
     $('.jcarte').load("ajax_zone_cartes_joueur_act");
 }
 
-function avatar() {
+function charge_ajax_zone_autrej() {
+    $('.autrej').load("ajax_zone_autrej");
+}
 
+function charge_ajax_zone_eventinfo() {
+    $('.evenet').load("ajax_zone_eventinfo");
+}
+
+function charge_ajax_zone_menuactionj() {
+    $('.menuactionj').load("ajax_zone_menuactionj");
+}
+
+function avatar() {
 
     //   affichage avatar de moi
     var alea = Math.floor(Math.random() * imgtete.length);
@@ -30,6 +40,6 @@ function avatar() {
         $('.champ').append("<img src=" + imgtete[i] + " /><br>");
     }
 }
- avatar();
+ //avatar();
     // Charger ponctuellement les cartes du joueur act et autre joueurs
     //setInterval( chargeZoneCartesJoueurAct(), 1000 );

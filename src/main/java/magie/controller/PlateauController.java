@@ -24,8 +24,45 @@ public class PlateauController {
 
     @Autowired
     private JoueurDAO dao;
+    
+     @RequestMapping(value = "/ajax_zone_menuactionj", method = RequestMethod.GET)
+    public String ajax_zone_menuactionjGET(Model model, HttpSession session){
+        long idPartie = (long) session.getAttribute("idPartie");
+        
+        Joueur joueurAct = dao.findOne( (long) session.getAttribute("idJoueur") );
+        //model.addAttribute("ingredientsJoueurAct", joueurAct.getIngredients() );
+        model.addAttribute("joueurs", dao.findAllByPartieId(idPartie)); 
+        model.addAttribute("joueuractuel", dao.findOne((Long) session.getAttribute("idJoueur")).getPseudo());
 
-    @RequestMapping(value = "/ajax_zone_cartes_joueur_act", method = RequestMethod.GET)
+        return "ajax_zone_menuactionj.jsp";
+    }
+    
+
+    @RequestMapping(value = "/ajax_zone_eventinfo", method = RequestMethod.GET)
+    public String ajax_zone_eventinfoGET(Model model, HttpSession session){
+        long idPartie = (long) session.getAttribute("idPartie");
+        
+        Joueur joueurAct = dao.findOne( (long) session.getAttribute("idJoueur") );
+        //model.addAttribute("ingredientsJoueurAct", joueurAct.getIngredients() );
+        model.addAttribute("joueurs", dao.findAllByPartieId(idPartie)); 
+        model.addAttribute("joueuractuel", dao.findOne((Long) session.getAttribute("idJoueur")).getPseudo());
+
+        return "ajax_zone_eventinfo.jsp";
+    }
+
+    @RequestMapping(value = "/ajax_zone_autrej", method = RequestMethod.GET)
+    public String ajax_zone_autrejGET(Model model, HttpSession session){
+        long idPartie = (long) session.getAttribute("idPartie");
+        
+        Joueur joueurAct = dao.findOne( (long) session.getAttribute("idJoueur") );
+        //model.addAttribute("ingredientsJoueurAct", joueurAct.getIngredients() );
+        model.addAttribute("joueurs", dao.findAllByPartieId(idPartie)); 
+        model.addAttribute("joueuractuel", dao.findOne((Long) session.getAttribute("idJoueur")).getPseudo());
+
+        return "ajax_zone_autrej.jsp";
+    }
+    
+       @RequestMapping(value = "/ajax_zone_cartes_joueur_act", method = RequestMethod.GET)
     public String ajaxZoneCartesJoueurAct(Model model, HttpSession session){
         
         Joueur joueurAct = dao.findOne( (long) session.getAttribute("idJoueur") );
