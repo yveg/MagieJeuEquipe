@@ -24,8 +24,6 @@ import magie.service.PartieService;
 public class SortController {
     
      private JoueurDAO dao;
-     @Autowired
-    private PartieService partieService;
 
     @Autowired
     private SortService sortService;
