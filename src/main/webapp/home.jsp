@@ -33,7 +33,34 @@
             <br>
             <form:input  id="saisie" path="pseudo"/> 
             <input type="submit"  style="font-face: 'Comic Sans MS'; font-size: larger; color: red; background-color:#ffc00" value="Créer joueur" />
+            <br>
+            <br>
+            <div id="avatars">
+                <form>
+                    <label class="avatars">
+                        <form:radiobutton path="avatar" name ="avatar" value="Images/tete/asssasin.png" checked="checked"/>
+                        <img src="Images/tete/asssasin.png" alt=""/>
+                    </label>
+                    <label class="avatars">
+                        <form:radiobutton path="avatar" name ="avatar" value="Images/tete/bleu.png"/>
+                        <img src="Images/tete/bleu.png" alt=""/>
+                    </label>
+                    <label class="avatars">
+                        <form:radiobutton path="avatar" name ="avatar" value="Images/tete/blond.png"/>
+                        <img src="Images/tete/blond.png" alt=""/>
+                    </label>
+                    <label class="avatars">
+                        <form:radiobutton path="avatar" name ="avatar" value="Images/tete/chatt.png"/>
+                        <img src="Images/tete/chatt.png" alt=""/>
+                    </label>
+                    <label class="avatars">
+                        <form:radiobutton path="avatar" name ="avatar" value="Images/tete/horus.png"/>
+                        <img src="Images/tete/horus.png" alt=""/>
+                    </label>
+                </form>
+            </div>
         </form:form>
+            
         <br>
     </body>
 </html>

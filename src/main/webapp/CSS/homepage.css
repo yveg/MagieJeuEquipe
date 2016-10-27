@@ -7,13 +7,6 @@ and open the template in the editor.
     Created on : 24 oct. 2016, 12:25:45
     Author     : admin
 */
-@font-face {
-    font-family: 'harry';  src:url('http://localhost:8084/font/harry/harry.ttf')  format('truetype');
-    font-family: 'PokemonSolid';     src:url('http://localhost:8084/font/PokemonSolid.ttf')  format('truetype');
-    font-family: 'yerbaluisa';     src:url('http://localhost:8084/yerbaluisa.ttf')  format('truetype');
-    font-family: 'Sofia-Regular';     src:url('http://localhost:8084/sofia/Sofia-Regular.otf');
-    font-family: 'funsized';  src:url('font/funsized.ttf')  format('truetype');
-}
 
 h1{color: gold;
    text-align: center;
@@ -69,3 +62,26 @@ form{
     color: green;
 }
 
+*{
+  box-sizing: border-box;
+}
+#avatars{
+  width:available;
+ 
+}
+.avatars> img{
+  width:50px;
+  height: 50px;
+}
+.avatars > input{
+  display: none;
+}
+
+.avatars > input + img{
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.avatars > input:checked + img{
+  border: 2px solid red;
+}
