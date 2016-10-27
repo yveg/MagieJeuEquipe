@@ -28,9 +28,9 @@
         <br>
         <br>
         <br>
-        ${msgErreur}
-        <br>
         <form:form id="saisiePseudo" modelAttribute="joueur">
+            ${msgErreur}
+            <br>
             <form:input  id="saisie" path="pseudo"/> 
             <input type="submit"  style="font-face: 'Comic Sans MS'; font-size: larger; color: red; background-color:#ffc00" value="Créer joueur" />
         </form:form>

@@ -38,13 +38,14 @@ public class PartieService {
     
         
         // Vérif si existe déjà
-        if( crudJoueur.findOneByPseudo(pseudo)!=null ){
+        if( crudJoueur.findOneByPseudo(pseudo)!=null )
             return false;
-        }
+        // Vérifie si pseudo n'est pas vide
+        if(pseudo == null)
+            return false;
         // 
-        else{
+        
         return true;
-        }
     }
     
     public void definirTourSuivant(long idPartie){
