@@ -85,8 +85,7 @@ public class PartieService {
         // Récup partie et mise en DEMARREE
         Partie partie = crudPartie.findOne(partieId);
         partie.setEtatPartie(Partie.EtatPartie.DEMARREE);
-        partie.setJoueurQuiALaMain(crudJoueur.findOneByTour(0));
-        crudPartie.save(partie);
+        
         // Crée 7 cartes aléat par joueur et initialise tour des joueurs
         int tourJoueur = 1;
         for (Joueur joueur : partie.getJoueurs()) {
@@ -105,9 +104,12 @@ public class PartieService {
             joueur.setSommeilProfond(0);
             joueur.setTour(tourJoueur);
             tourJoueur++;
-
+            partie.setJoueurQuiALaMain(crudJoueur.findOneByTour(0));
+            crudPartie.save(partie);
             crudJoueur.save(joueur);
+            
         }
+        
     }
     
     public boolean testPartieDemarree(long idPartie) {
