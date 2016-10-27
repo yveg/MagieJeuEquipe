@@ -17,9 +17,8 @@
         <script type="text/javascript">
               
              $(document).ready(function () {
-             
+             avatar();
                 setInterval(function () {
-                    charge_ajax_zone_infoj();
                     chargeZoneCartesJoueurAct();
                     charge_ajax_zone_autrej();
                     charge_ajax_zone_eventinfo();
@@ -32,7 +31,8 @@
         <h1>Plateau du jeu Magie en cours</h1>
         <section>
             <div class="infoj">
-               
+                <p class="shadow">Vous &ecirc;tes: ${joueuractuel}<div class="avatar">ici photo</div></p>
+                <p class="shadow">le tour est &agrave;: ${tour}</p>
                 
             </div>
 

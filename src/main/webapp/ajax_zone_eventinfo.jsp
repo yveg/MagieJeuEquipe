@@ -7,7 +7,8 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-changement de tour de ${ancien} pour ${tour}<br>
+: ${echo2}<br>
+changement de tour de ${ancien} pour ${tour} joueuractuel ${joueuractuel}<br>
 ${acteur} a lance le sort ${sort} <br>
 ${acteur} a eu n cartes <br>
 ${victime} a perdu n cartes <br>

@@ -28,7 +28,9 @@ function charge_ajax_zone_eventinfo() {
 function charge_ajax_zone_menuactionj() {
     $('.menuactionj').load("ajax_zone_menuactionj");
 }
-
+function charge_ajax_zone_infoj() {
+    $('.infoj').load("ajax_zone_infoj");
+}
 function avatar() {
 
     //   affichage avatar de moi

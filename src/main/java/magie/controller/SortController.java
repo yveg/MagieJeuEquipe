@@ -32,19 +32,21 @@ public class SortController {
     private PartieService partieService;
 
     @RequestMapping(value = "/invisroute", method = RequestMethod.GET)
-    public String invisibilitie(Model model, HttpSession session) {
+    public String invisibilitie(Model m, HttpSession session) {
         long idPartie = (long) session.getAttribute("idPartie");
         //Joueur j = new Joueur();
         //session.getId();
         //on lance le sort invisible
         long okk = (Long) session.getAttribute("idJoueur");
-        sortService.invisibilitie(okk);
+        String b ="echo invisible";
+        m.addAttribute("echo",b);
+        //sortService.invisibilitie(okk);
         partieService.definirTourSuivant(idPartie);
         /*Partie p =new Partie();
          model.addAttribute("tour", p.getJoueurQuiALaMain().getPseudo());
          */
         //faire l envoi de status a tous les jours
-        return "/plateau";
+        return "redirect:/plateau";
     }
 
 }

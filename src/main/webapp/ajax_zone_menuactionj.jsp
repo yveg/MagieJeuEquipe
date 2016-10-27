@@ -11,7 +11,7 @@
 <tr><td><img class="inviz"  id="invisibility" src="Images/sort/invisibilite.png" 
              alt="le joueur prend 1 carte(au hasard) chez tous ses adversaires
      Ingr&eacute;dients: corne de licorne + bave de crapaud" 
-     onclick="location.href=invisroute"/>&nbsp;
+     onclick="location.href='invisroute'"/>&nbsp;
 <span class="invi">
     <br>Le joueur prend 1 carte au hasard chez tous ses adversaires<br>
     Ingr&eacute;dients n&eacute;cessaires: corne de licorne + bave de crapaud
