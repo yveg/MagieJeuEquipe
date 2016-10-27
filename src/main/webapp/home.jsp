@@ -37,25 +37,25 @@
             <br>
             <div id="avatars">
                 <form>
-                    <label class="avatars">
-                        <form:radiobutton path="avatar" name ="avatar" value="Images/tete/asssasin.png" checked="checked"/>
-                        <img src="Images/tete/asssasin.png" alt=""/>
+                    <label class='avatars'>
+                        <form:radiobutton path='avatar' name ='avatar' value='Images/tete/assassin.png' checked='checked'/>
+                        <img src='Images/tete/assassin.png' alt=''/>
                     </label>
-                    <label class="avatars">
-                        <form:radiobutton path="avatar" name ="avatar" value="Images/tete/bleu.png"/>
-                        <img src="Images/tete/bleu.png" alt=""/>
+                    <label class='avatars'>
+                        <form:radiobutton path='avatar' name ='avatar' value='Images/tete/bleu.png'/>
+                        <img src='Images/tete/bleu.png' alt=''/>
                     </label>
-                    <label class="avatars">
-                        <form:radiobutton path="avatar" name ="avatar" value="Images/tete/blond.png"/>
-                        <img src="Images/tete/blond.png" alt=""/>
+                    <label class='avatars'>
+                        <form:radiobutton path='avatar' name ='avatar' value='Images/tete/blond.png'/>
+                        <img src='Images/tete/blond.png' alt=''/>
                     </label>
-                    <label class="avatars">
-                        <form:radiobutton path="avatar" name ="avatar" value="Images/tete/chatt.png"/>
-                        <img src="Images/tete/chatt.png" alt=""/>
+                    <label class='avatars'>
+                        <form:radiobutton path='avatar' name ='avatar' value='Images/tete/chatt.png'/>
+                        <img src='Images/tete/chatt.png' alt=''/>
                     </label>
-                    <label class="avatars">
-                        <form:radiobutton path="avatar" name ="avatar" value="Images/tete/horus.png"/>
-                        <img src="Images/tete/horus.png" alt=""/>
+                    <label class='avatars'>
+                        <form:radiobutton path='avatar' name ='avatar' value='Images/tete/inuit.png'/>
+                    <img src='Images/tete/inuit.png' alt=''/>
                     </label>
                 </form>
             </div>
