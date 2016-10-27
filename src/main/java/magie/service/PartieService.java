@@ -34,6 +34,18 @@ public class PartieService {
     @Autowired
     IngredientDAO crudIngredient;
 
+    public boolean testPseudoValide(String pseudo){
+    
+        
+        // Vérif si existe déjà
+        if( crudJoueur.findOneByPseudo(pseudo)!=null ){
+            return false;
+        }
+        // 
+        else{
+        return true;
+        }
+    }
     
     public void definirTourSuivant(long idPartie){
         // récupere la partie en cours
@@ -73,6 +85,7 @@ public class PartieService {
         // Récup partie et mise en DEMARREE
         Partie partie = crudPartie.findOne(partieId);
         partie.setEtatPartie(Partie.EtatPartie.DEMARREE);
+        partie.setJoueurQuiALaMain(crudJoueur.findOneByTour(0));
         crudPartie.save(partie);
         // Crée 7 cartes aléat par joueur et initialise tour des joueurs
         int tourJoueur = 1;
