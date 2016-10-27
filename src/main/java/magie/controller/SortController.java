@@ -30,13 +30,14 @@ public class SortController {
     @RequestMapping(value = "invisroute", method = RequestMethod.GET)
     public String invisibilitie(Model model, HttpSession session) {
         long idPartie= (long) session.getAttribute("idPartie");
-        Joueur j = new Joueur();
-        session.getId();
+        //Joueur j = new Joueur();
+        //session.getId();
+        //on lance le sort invisible
         long okk = (Long) session.getAttribute("idJoueur");
         sortService.invisibilitie(okk);
         partieService.definirTourSuivant(idPartie);
         
-        //faire l envoi de message
+        //faire l envoi de status a tous les jours
         return "testSort.jsp";
     }
 
