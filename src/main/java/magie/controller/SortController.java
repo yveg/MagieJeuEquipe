@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpSession;
 import magie.entity.Joueur;
+import magie.service.PartieService;
 
 /**
  *
@@ -23,13 +24,19 @@ public class SortController {
 
     @Autowired
     private SortService sortService;
+     @Autowired
+    private PartieService partieService;
 
     @RequestMapping(value = "invisroute", method = RequestMethod.GET)
     public String invisibilitie(Model model, HttpSession session) {
+        long idPartie= (long) session.getAttribute("idPartie");
         Joueur j = new Joueur();
         session.getId();
         long okk = (Long) session.getAttribute("idJoueur");
         sortService.invisibilitie(okk);
+        partieService.definirTourSuivant(idPartie);
+        
+        //faire l envoi de message
         return "testSort.jsp";
     }
 
