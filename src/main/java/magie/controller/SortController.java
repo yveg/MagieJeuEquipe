@@ -31,7 +31,7 @@ public class SortController {
     @Autowired
     private PartieService partieService;
 
-    @RequestMapping(value = "invisroute", method = RequestMethod.GET)
+    @RequestMapping(value = "/invisroute", method = RequestMethod.GET)
     public String invisibilitie(Model model, HttpSession session) {
         long idPartie = (long) session.getAttribute("idPartie");
         //Joueur j = new Joueur();

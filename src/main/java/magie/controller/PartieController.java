@@ -119,7 +119,7 @@ public class PartieController {
         //set la variable tour pour afficher qui a la main
         Partie p = crudPartie.findOne(idPartie);
         String a=p.getJoueurQuiALaMain().getPseudo();
-        model.addAttribute("tour", crudJoueur.findOneByPseudo(a));
+        model.addAttribute("tour", a);
         return "plateau.jsp";
     }
 

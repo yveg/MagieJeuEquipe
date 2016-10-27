@@ -7,6 +7,11 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+changement de tour de ${ancien} pour ${tour}<br>
+${acteur} a lance le sort ${sort} <br>
+${acteur} a eu n cartes <br>
+${victime} a perdu n cartes <br>
+${acteur} passe son tour<br>
 
 recuperere chaque evenements (perte de carte, augmentation de carte, tour decale,a qui le tour, sort lancé, sort subi, joueur elimine, joueur gagant)
 
