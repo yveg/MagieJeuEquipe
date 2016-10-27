@@ -7,13 +7,14 @@ package magie.controller;
 
 import javax.servlet.http.HttpSession;
 import magie.DAO.JoueurDAO;
+import magie.DAO.PartieDAO;
 import magie.entity.Joueur;
+import magie.entity.Partie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 
 /**
  *
@@ -23,58 +24,75 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class PlateauController {
 
     @Autowired
+    PartieDAO crudPartie;
+
+    @Autowired
     private JoueurDAO dao;
-    
-     @RequestMapping(value = "/ajax_zone_menuactionj", method = RequestMethod.GET)
-    public String ajax_zone_menuactionjGET(Model model, HttpSession session){
+
+    @RequestMapping(value = "/ajax_zone_menuactionj", method = RequestMethod.GET)
+    public String ajax_zone_menuactionjGET(Model model, HttpSession session) {
         long idPartie = (long) session.getAttribute("idPartie");
-        
-        Joueur joueurAct = dao.findOne( (long) session.getAttribute("idJoueur") );
+
+        Joueur joueurAct = dao.findOne((long) session.getAttribute("idJoueur"));
         //model.addAttribute("ingredientsJoueurAct", joueurAct.getIngredients() );
-        model.addAttribute("joueurs", dao.findAllByPartieId(idPartie)); 
+        model.addAttribute("joueurs", dao.findAllByPartieId(idPartie));
         model.addAttribute("joueuractuel", dao.findOne((Long) session.getAttribute("idJoueur")).getPseudo());
 
         return "ajax_zone_menuactionj.jsp";
     }
-    
 
     @RequestMapping(value = "/ajax_zone_eventinfo", method = RequestMethod.GET)
-    public String ajax_zone_eventinfoGET(Model model, HttpSession session){
+    public String ajax_zone_eventinfoGET(Model model, HttpSession session) {
         long idPartie = (long) session.getAttribute("idPartie");
-        
-        Joueur joueurAct = dao.findOne( (long) session.getAttribute("idJoueur") );
+
+        Joueur joueurAct = dao.findOne((long) session.getAttribute("idJoueur"));
         //model.addAttribute("ingredientsJoueurAct", joueurAct.getIngredients() );
-        model.addAttribute("joueurs", dao.findAllByPartieId(idPartie)); 
+        model.addAttribute("joueurs", dao.findAllByPartieId(idPartie));
         model.addAttribute("joueuractuel", dao.findOne((Long) session.getAttribute("idJoueur")).getPseudo());
 
         return "ajax_zone_eventinfo.jsp";
     }
 
-    @RequestMapping(value = "/ajax_zone_autrej", method = RequestMethod.GET)
-    public String ajax_zone_autrejGET(Model model, HttpSession session){
+    @RequestMapping(value = "ajax_zone_infoj", method = RequestMethod.GET)
+    public String ajax_zone_infojGet(Model model, HttpSession session) {
         long idPartie = (long) session.getAttribute("idPartie");
-        
-        Joueur joueurAct = dao.findOne( (long) session.getAttribute("idJoueur") );
+        Joueur joueurAct = dao.findOne((long) session.getAttribute("idJoueur"));
         //model.addAttribute("ingredientsJoueurAct", joueurAct.getIngredients() );
-        model.addAttribute("joueurs", dao.findAllByPartieId(idPartie)); 
+        model.addAttribute("joueurs", dao.findAllByPartieId(idPartie));
+        model.addAttribute("joueuractuel", dao.findOne((Long) session.getAttribute("idJoueur")).getPseudo());
+        Joueur avat= dao.findOne((long) session.getAttribute("idJoueur"));
+        model.addAttribute("alvatar", avat.getAvatar());
+        Partie p = crudPartie.findOne(idPartie);
+        String a = p.getJoueurQuiALaMain().getPseudo();
+        model.addAttribute("tour", a);
+        return "ajax_zone_infoj.jsp";
+    }
+
+    @RequestMapping(value = "/ajax_zone_autrej", method = RequestMethod.GET)
+    public String ajax_zone_autrejGET(Model model, HttpSession session) {
+        long idPartie = (long) session.getAttribute("idPartie");
+
+        Joueur joueurAct = dao.findOne((long) session.getAttribute("idJoueur"));
+        //model.addAttribute("ingredientsJoueurAct", joueurAct.getIngredients() );
+        model.addAttribute("joueurs", dao.findAllByPartieId(idPartie));
         model.addAttribute("joueuractuel", dao.findOne((Long) session.getAttribute("idJoueur")).getPseudo());
 
         return "ajax_zone_autrej.jsp";
     }
-    
-       @RequestMapping(value = "/ajax_zone_cartes_joueur_act", method = RequestMethod.GET)
-    public String ajaxZoneCartesJoueurAct(Model model, HttpSession session){
-        
-        Joueur joueurAct = dao.findOne( (long) session.getAttribute("idJoueur") );
-        model.addAttribute("ingredientsJoueurAct", joueurAct.getIngredients() );
-        
+
+    @RequestMapping(value = "/ajax_zone_cartes_joueur_act", method = RequestMethod.GET)
+    public String ajaxZoneCartesJoueurAct(Model model, HttpSession session) {
+
+        Joueur joueurAct = dao.findOne((long) session.getAttribute("idJoueur"));
+        model.addAttribute("ingredientsJoueurAct", joueurAct.getIngredients());
+
         return "ajax_zone_cartes_joueur_act.jsp";
     }
-    
+
     @RequestMapping(value = "/plateauroute", method = RequestMethod.POST)
     //public String cookitpPOST(String nomdujoueur, HttpSession couqui) {
     public String jeuencoursPOST() {
-       // Joueur j = new Joueur();
+        // Joueur j = new Joueur();
         // j.setPseudo(nomdujoueur);
         // serv.save(j);
         // couqui.setAttribute("idJoueur", j.getPseudo());

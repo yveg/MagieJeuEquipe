@@ -51,7 +51,7 @@ public class PartieController {
         dto.setDemarree(partieService.testPartieDemarree(idPartie));
         return dto;
     }
-       
+
     @RequestMapping(value = "ajax_liste_joueurs_en_attente", method = RequestMethod.GET)
     public String ajaxListeJoueursEnAttente(Model model, HttpSession session) {
         long idPartie = (long) session.getAttribute("idPartie");
@@ -78,6 +78,7 @@ public class PartieController {
 
         return "ajax_liste_parties_en_attente.jsp";
     }
+    
 
     @RequestMapping(value = "/lister_parties", method = RequestMethod.GET)
     public String listerGET(Model model, HttpSession session) {
@@ -118,8 +119,9 @@ public class PartieController {
         model.addAttribute("joueurs", crudJoueur.findAllByPartieId(idPartie));
         //set la variable tour pour afficher qui a la main
         Partie p = crudPartie.findOne(idPartie);
-        String a=p.getJoueurQuiALaMain().getPseudo();
+        String a = p.getJoueurQuiALaMain().getPseudo();
         model.addAttribute("tour", a);
+        model.addAttribute("echo2", "echo invisible");
         return "plateau.jsp";
     }
 
