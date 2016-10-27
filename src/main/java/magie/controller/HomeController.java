@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import magie.DAO.JoueurDAO;
 import magie.DAO.PartieDAO;
+import magie.service.PartieService;
 
 /**
  *
@@ -28,27 +29,34 @@ public class HomeController {
     private JoueurDAO serv;
     @Autowired
     private PartieDAO crudPartie;
+    @Autowired
+    private PartieService partieService;
     
     @RequestMapping(value = "/", method = RequestMethod.GET) 
     public String maison (Model m) {
         m.addAttribute("titre", "Jeu de Magie entre Sorciers");
         m.addAttribute("joueur",new Joueur());
-        
+        m.addAttribute("joueurs",serv.findAll());
         return "home.jsp"; 
     }
     
     @RequestMapping(value = "/", method = RequestMethod.POST) 
-    public String maison (@ModelAttribute("joueur") Joueur j,HttpSession session) {
-        if(serv.findOneByPseudo(j.getPseudo()) == null){
-            j.setRevelation(false);
-            serv.save(j);
-            session.setAttribute("idJoueur", j.getId());
+    public String maison (@ModelAttribute("joueur") Joueur joueur,HttpSession session, Model model) {
+            boolean test = partieService.testPseudoValide(joueur.getPseudo());
+            // Teste si pseudo valide
+            if(test == false){
+                model.addAttribute("msgErreur", "Pseudo déjà existant ou non valide!");
+                return maison(model);
+            }
+        
+            // Pseudo non valide
+            
+            // Persiste le joueur
+            joueur.setRevelation(false);
+            serv.save(joueur);
+            session.setAttribute("idJoueur", joueur.getId());
+            
             return "redirect:/lister_parties";
-        }
-        else {
-            //alert("Pseudo déjà existant!");
-            return "redirect:/";
-        }
     }
 }
 

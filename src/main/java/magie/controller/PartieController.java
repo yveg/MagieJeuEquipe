@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 import magie.entity.Partie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,7 +18,6 @@ import magie.DAO.JoueurDAO;
 import magie.DAO.PartieDAO;
 import magie.controller.dto.PartieDemarreeDTO;
 import magie.service.PartieService;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -53,7 +51,7 @@ public class PartieController {
       dto.setDemarree(partieService.testPartieDemarree(idPartie));
         return dto;
     }
-    
+       
     @RequestMapping(value = "ajax_liste_joueurs_en_attente", method = RequestMethod.GET)
     public String ajaxListeJoueursEnAttente(Model model, HttpSession session) {
         long idPartie = (long) session.getAttribute("idPartie");
