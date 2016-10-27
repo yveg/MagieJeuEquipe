@@ -104,7 +104,7 @@ public class PartieService {
             joueur.setSommeilProfond(0);
             joueur.setTour(tourJoueur);
             tourJoueur++;
-            partie.setJoueurQuiALaMain(crudJoueur.findOneByTour(0));
+            partie.setJoueurQuiALaMain(joueur);
             crudPartie.save(partie);
             crudJoueur.save(joueur);
             
