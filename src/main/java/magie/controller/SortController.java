@@ -12,7 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpSession;
+import magie.DAO.JoueurDAO;
 import magie.entity.Joueur;
+import magie.service.PartieService;
 
 /**
  *
@@ -20,17 +22,28 @@ import magie.entity.Joueur;
  */
 @Controller
 public class SortController {
+    
+     private JoueurDAO dao;
 
     @Autowired
     private SortService sortService;
+     @Autowired
+    private PartieService partieService;
 
     @RequestMapping(value = "invisroute", method = RequestMethod.GET)
     public String invisibilitie(Model model, HttpSession session) {
-        Joueur j = new Joueur();
-        session.getId();
+        long idPartie= (long) session.getAttribute("idPartie");
+        //Joueur j = new Joueur();
+        //session.getId();
+        //on lance le sort invisible
         long okk = (Long) session.getAttribute("idJoueur");
         sortService.invisibilitie(okk);
+        partieService.definirTourSuivant(idPartie);
+        
+        //faire l envoi de status a tous les jours
         return "testSort.jsp";
     }
+    
+  
 
 }
