@@ -41,19 +41,19 @@ public class PartieController {
 
     @Autowired
     IngredientDAO crudIngredient;
-    
+
     @RequestMapping(value = "ajax_partie_demarree", method = RequestMethod.GET)
     @ResponseBody
-    public PartieDemarreeDTO ajaxPartieDemarree(HttpSession session){
-        
+    public PartieDemarreeDTO ajaxPartieDemarree(HttpSession session) {
+
         PartieDemarreeDTO dto = new PartieDemarreeDTO();
-        
+
         // place dto.demarree à true si la partie est démarree
         long idPartie = (long) session.getAttribute("idPartie");
-      dto.setDemarree(partieService.testPartieDemarree(idPartie));
+        dto.setDemarree(partieService.testPartieDemarree(idPartie));
         return dto;
     }
-    
+
     @RequestMapping(value = "ajax_liste_joueurs_en_attente", method = RequestMethod.GET)
     public String ajaxListeJoueursEnAttente(Model model, HttpSession session) {
         long idPartie = (long) session.getAttribute("idPartie");
@@ -83,8 +83,8 @@ public class PartieController {
 
     @RequestMapping(value = "/lister_parties", method = RequestMethod.GET)
     public String listerGET(Model model, HttpSession session) {
-        
-         //long idPartie = (long) session.getAttribute("idPartie");
+
+        //long idPartie = (long) session.getAttribute("idPartie");
 //        List<Partie> parties = (List) crudPartie.findAllByEtatPartie(Partie.EtatPartie.EN_ATTENTE);
 //        Partie maPartie = new Partie();
 //        model.addAttribute("parties", parties);
@@ -92,8 +92,8 @@ public class PartieController {
         //Partie p = crudPartie.findOne(idPartie);
         model.addAttribute("joueuractuel", crudJoueur.findOne((Long) session.getAttribute("idJoueur")).getPseudo());
         //model.addAttribute("etatPartie", p.getEtatPartie());
-       //model.addAttribute("etatPartieATestee", Partie.EtatPartie.DEMARREE);
-       //model.addAttribute("joueurs", crudJoueur.findAllByPartieId(idPartie));
+        //model.addAttribute("etatPartieATestee", Partie.EtatPartie.DEMARREE);
+        //model.addAttribute("joueurs", crudJoueur.findAllByPartieId(idPartie));
 
         return "attentePartie.jsp";
     }
@@ -117,7 +117,11 @@ public class PartieController {
 
         // Renvoie vers vue
         model.addAttribute("joueuractuel", crudJoueur.findOne((Long) session.getAttribute("idJoueur")).getPseudo());
-        model.addAttribute("joueurs", crudJoueur.findAllByPartieId(idPartie));          
+        model.addAttribute("joueurs", crudJoueur.findAllByPartieId(idPartie));
+        //set la variable tour pour afficher qui a la main
+        Partie p = crudPartie.findOne(idPartie);
+        String a=p.getJoueurQuiALaMain().getPseudo();
+        model.addAttribute("tour", crudJoueur.findOneByPseudo(a));
         return "plateau.jsp";
     }
 
@@ -128,6 +132,7 @@ public class PartieController {
         long partieId = (long) session.getAttribute("idPartie");
         partieService.demarrerPartie(partieId);
 
+        // model.addAttribute("tour", p.getJoueurQuiALaMain().getPseudo());
         return "redirect:/plateau";
     }
 

@@ -115,4 +115,5 @@ public class PartieService {
             crudPartie.save(partie);
         }
     }
+
 }

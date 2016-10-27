@@ -17,5 +17,7 @@ public interface PartieDAO extends CrudRepository<Partie, Long>{
 
     public int countByEtatPartie(Partie.EtatPartie etatPartie);
     public  List<Partie> findAllByEtatPartie(Partie.EtatPartie etatPartie);
+
+    public Partie findOneById(long partieId);
     
 }
